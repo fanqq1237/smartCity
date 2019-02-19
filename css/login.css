@@ -4,7 +4,22 @@
 
 .user {
 	float: right;
-	color: rgb(72, 156, 245);
+	color: rgba(72, 156, 245, 1);
+	position: absolute;
+	right: .5rem;
+	top: 1rem;
+	font-size: 1rem;
+	text-align: center;
+	background-color: rgba(153, 153, 153, 0)
+}
+
+.oftenRecharge {
+	position: absolute;
+	right: 1rem;
+	font-size: 1rem;
+	text-align: center;
+	color: #fff;
+	background-color: rgba(153, 153, 153, 0);
 }
 
 .file-title {
@@ -26,10 +41,6 @@
 	margin-top: 6%;
 }
 
-.layui-form-item {
-	border-bottom: 1px solid lightgray;
-}
-
 .layui-input,
 .layui-textarea {
 	border: none;
@@ -37,7 +48,7 @@
 
 .get {
 	background-color: white;
-	color: rgb(72, 156, 245);
+	color: rgb(72, 156, 245, 1);
 	border: none;
 	position: absolute;
 	top: 0rem;
@@ -49,7 +60,7 @@
 
 .login_btn {
 	width: 100%;
-	background-color: rgb(72, 156, 245);
+	background-color: rgb(72, 156, 245, 1);
 	border-radius: 5px;
 	margin-top: 5%;
 }
@@ -60,7 +71,7 @@
 
 .register_btn {
 	background-color: white;
-	color: rgb(72, 156, 245);
+	color: rgb(72, 156, 245, 1);
 	border: none;
 }
 
@@ -107,9 +118,7 @@
 
 .back {
 	position: absolute;
-	left: .3rem;
-	top: 0px;
-	line-height: 2rem;
+	left: 1rem;
 	font-size: 1rem;
 	text-align: center;
 	color: rgba(72, 156, 245, 1);
@@ -117,11 +126,10 @@
 }
 
 .next {
-	color: rgb(72, 156, 245);
+	color: rgb(72, 156, 245, 1);
 	position: absolute;
 	right: 1rem;
-	top: 0px;
-	line-height: 2rem;
+	font-size: 1rem;
 }
 
 .phonemsg {
@@ -134,17 +142,6 @@
 
 /*常用地选择*/
 
-.title {
-	position: relative;
-	width: 100%;
-	text-align: center;
-}
-
-.wheel-scroll.wheel-scroll-hook {
-	margin: 0;
-	padding: 0;
-}
-
 .pick {
 	float: right;
 	border: none;
@@ -155,11 +152,51 @@
 	float: right;
 }
 
+.listContent {
+	margin: 0 -15px;
+	padding: 0rem 1rem;
+	color: #000;
+	background-color: #fff;
+}
+
+.back {
+	position: absolute;
+	left: 1rem;
+	font-size: 1rem;
+	text-align: center;
+	color: rgba(72, 156, 245, 1);
+	background-color: rgba(153, 153, 153, 0);
+}
+
+.listTitle {
+	font-size: 1.25rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	color: #000;
+}
+
+.nextHtml {
+	position: absolute;
+	right: 1rem;
+	font-size: 1rem;
+	color: rgba(72, 156, 245, 1);
+	background-color: rgba(153, 153, 153, 0);
+}
+
+.contentBox {
+	margin-top: 2rem;
+}
+
+.picker {
+	overflow: visible !important;
+}
+
 
 /*实名认证*/
 
 .authen {
-	margin-top: 18%;
+	margin-top: 10%;
 }
 
 .submit_btn {
@@ -179,11 +216,33 @@
 .getCode {
 	position: absolute;
 	right: 1rem;
-	bottom: 8.5rem;
+	bottom: 9rem;
 	color: rgba(72, 156, 245, 1);
+	z-index: 999;
 }
 
 .formInputBox {
 	position: relative;
 	border-bottom: 1px solid #eee;
+}
+
+.goBack {
+	position: absolute;
+	left: 1rem;
+	font-size: 1rem;
+	text-align: center;
+	color: #fff;
+	background-color: rgba(153, 153, 153, 0);
+	color: #489CF5;
+}
+
+.msgTitle {
+	font-size: 1.25rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+}
+
+.layui-form-item {
+	border-bottom: 1px solid gainsboro;
 }
