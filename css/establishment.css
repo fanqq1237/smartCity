@@ -338,3 +338,12 @@
 .CardBox-line{
 	margin-top: 50px;
 }
+.check-img{
+	text-align: center;
+	width: 100%;
+	height: 30px;
+}
+.check-img img{
+	width: 10px;
+	height: 10px;
+}
