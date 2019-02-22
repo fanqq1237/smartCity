@@ -18,7 +18,7 @@
 				<h2 class="file-title">实名认证</h2>
 				<a href="首页地址" class="next">跳过</a>-->
 				<h2 class="msgTitle">
-                    <a href="javascript:history.back(-1);" class="goBack">
+                    <a href="javascript:;" class="goBack">
                         <i class="layui-icon layui-icon-left"></i> 返回
                     </a>
                 实名认证
@@ -52,14 +52,61 @@
 				<input type="submit" class="layui-btn submit_btn" lay-submit=""></input>
 			</form>
 		</div>
+
+		<!-- 隐藏域,存放卡片信息 -->
+        <input type="hidden" id="cardMsg" value="">
+        <!-- 隐藏域,存放卡片信息 --> 
+
 		<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="../../layui/layui.js"></script>
+		<!-- <script type="text/javascript" src="../../layui/lay/modules/layui.all.js"></script> -->
 		<script>
-			layui.use(['form'], function() {
-				var form = layui.form;
+			layui.use(['form', 'layer', 'element', 'laytpl'],
+        function() {
+            var form = layui.form,
+            layer = layui.layer,
+            element = layui.element,
+            laytpl = layui.laytpl;
 
-			});
-		</script>
+
+
+
+
+        
+			
+             //返回按钮
+			 $(".goBack").on("click",function() {
+            	layer.closeAll('iframe');
+            	// var index = parent.layer.getFrameIndex(window.name);
+             //    setTimeout(function(){parent.layer.close(index)}, 1000);
+
+
+
+             //    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+             //    parent.layer.close(index); //再执行关闭
+            });
+});
+
+  </script>
+  <!-- <script type="text/javascript">
+  	 $("#goBack").on("click",function(){
+            var codeId = $("#cardMsg").val().replace(/\s*/g,"");
+            //window.location.href = "myTransitCard.html?codeId="+codeId;
+            layer.open({
+                type: 2,
+                closeBtn: 0,
+                title: false,
+                content: "choiceCity.html?codeId="+codeId,
+                area: ['100%', '100%'],
+                yes: function(index) {
+                    layer.close(index);
+                },
+                end: function() {
+                    form.render();
+                }
+            });
+        });
+  </script> -->
 		<script>
 			// 判断身份证格式是否正确
 			$('#id-card').blur(function() {
@@ -70,6 +117,7 @@
 					return false;
 				}
 			});
+
 		</script>
 		<!--验证银行卡号-->
 		<script>
@@ -149,6 +197,10 @@
 					}
 				}, 1000);
 			}
+
+
+
+        
 		</script>
 	</body>
 

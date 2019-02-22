@@ -71,17 +71,24 @@
 
 .register_btn {
 	background-color: white;
-	color: rgb(72, 156, 245, 1);
+	color: darkgray;
 	border: none;
 }
 
 .forget {
 	background-color: white;
 	border: none;
-	color: darkgray;
+	/*color: darkgray;*/
+	color: rgb(72, 156, 245, 1);
 	float: right;
 }
+.forget-a{
+	color: darkgray;
+}
+.register-a{
+	color: rgb(72, 156, 245, 1);
 
+}
 .onerow {
 	position: relative;
 	vertical-align: middle;
@@ -129,7 +136,10 @@
 	color: rgb(72, 156, 245, 1);
 	position: absolute;
 	right: 1rem;
-	font-size: 1rem;
+	font-weight: 100;
+	line-height: 3rem;
+	font-size: 0.98rem;
+	top: 0;
 }
 
 .phonemsg {
@@ -169,9 +179,10 @@
 }
 
 .listTitle {
-	font-size: 1.25rem;
+	font-size: 1rem;
 	height: 3rem;
 	line-height: 3rem;
+	font-weight: 550;
 	text-align: center;
 	color: #000;
 }
@@ -244,5 +255,25 @@
 }
 
 .layui-form-item {
-	border-bottom: 1px solid gainsboro;
+	/*border-bottom: 1px solid gainsboro;*/
+}
+.layui-form-label{
+	width: 100%;
+	text-align: left;
+	padding: 9px 0px;
+}
+.layui-input-inline{
+   margin: 5px 0 10px 10px;
+}
+.inline{
+	margin-left: -100px;
+	border: 1px solid #ddd;
+	width: 10rem;
+	height: 2rem;
+	font-size: 0.84rem;
+	color: #252424;
+	border-radius: 5px;
+}
+.inline-option{
+	border: 1px solid #ddd;
 }
