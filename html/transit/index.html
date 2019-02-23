@@ -232,6 +232,7 @@
         $("#transitCode").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "myTransitCard.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
