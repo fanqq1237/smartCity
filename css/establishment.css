@@ -30,7 +30,6 @@
 	left: 1rem;
 	font-size: 1rem;
 	text-align: center;
-	color: #489CF5;
 	background-color: rgba(153, 153, 153, 0);
 }
 
@@ -166,44 +165,75 @@
 }
 
 .cardBalance {
-	background-color: #45A7F1;
+	background-color: #fff;
 	color: #fff;
 }
 
-.cardBalance h2,
-.cardBalance a {
-	color: #fff;
+.establishmentcard {
+	border-radius: 10px;
+	background: -webkit-linear-gradient(left, #289afa, #7ec1fb);
+	/* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(right, #289afa, #7ec1fb);
+	/* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(right, #289afa, #7ec1fb);
+	/* Firefox 3.6 - 15 */
+	background: linear-gradient(to right, #289afa, #7ec1fb);
+	box-shadow: 4px 7px 20px 1px #72bbf9;
 }
+
 
 .available {
 	padding-bottom: 10px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .available p {
-	font-size: .85rem;
+	font-size: .3rem;
 	color: #fff;
 	margin: 15px 0 15px 10px;
 }
 
 .available p.availableMoney {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 
-.transactionRecord {
-	background-color: #61B9FC;
-	margin: auto -15px;
+.available p.availableCard {
+	margin-top: 3rem;
+	font-size: .3rem;
+	margin-bottom: 2rem;
+	letter-spacing: 2px;
 }
 
-.transactionRecord>div:first-child {
-	border-right: 1px solid #fff;
+.detailbox {	
+   border-bottom: 1px solid #e6e6e6;
+   margin-bottom: 15px;
+   line-height: 50px;
 }
 
+.transactionRecord img {
+	width: 1rem;
+	height: 1rem;
+	float: left;
+	margin-top: 1rem;
+	margin-right: .6rem;
+}
+.text{
+	color:#c9c9c9;
+	font-size:.5rem;
+}
 .recordBalance {
-	height: 76px;
-	line-height: 76px;
+	height: 35px;
+	line-height: 35px;
 	text-align: center;
-	color: #fff;
-	font-size: .95rem;
+	color: #000;
+	font-size: 1rem;
+	display: inline-block;
+}
+
+.icon-right {
+	float: right;
+	display: inline-block;
 }
 
 .cardDetails li {
@@ -323,27 +353,28 @@
 .timeBox {
 	margin-top: 20px;
 }
+
 .list_date {
-    width: 100%;
-    line-height: 20px;
-    color: #999;
-    font-size: 15px;
+	width: 100%;
+	line-height: 20px;
+	color: #999;
+	font-size: 15px;
 	height: auto;
 	text-align: center;
 	border-bottom: 1px solid #999;
 }
-.list_date:first-child{
-	border-top: 1px solid #999;
-}
-.CardBox-line{
+
+.CardBox-line {
 	margin-top: 50px;
 }
-.check-img{
+
+.check-img {
 	text-align: center;
 	width: 100%;
 	height: 30px;
 }
-.check-img img{
+
+.check-img img {
 	width: 10px;
 	height: 10px;
 }
