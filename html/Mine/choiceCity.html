@@ -20,14 +20,14 @@
 		<div class="layui-fluid ">
 			<div class="layui-row listContent">
 				<h2 class="listTitle">
-                    <!-- <a href="javascript:history.back(-1)" class="back">
+                    <a href="javascript:;" class="back" style="font-weight: 100;">
                         <i class="layui-icon layui-icon-left"></i>
                         返回
-                    </a> -->
+                    </a>
                     选择常用地
                     <a href="javascript:;" id="next" class="next">
-                     下一步 
-                   </a>
+                       完成
+                    </a>
                </h2>
 			</div>
 			<!--常用地选择-->
@@ -73,20 +73,29 @@
             layer = layui.layer,
             element = layui.element,
             laytpl = layui.laytpl;
+
+             //返回按钮
+			 $(".Back").on("click",function() {
+            	// layer.closeAll('iframe');
+            	// var index = parent.layer.getFrameIndex(window.name);
+             //    setTimeout(function(){parent.layer.close(index)}, 1000);
+
+                var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                parent.layer.close(index); //再执行关闭
+            });
             
         
         });
 		</script>
 		<script type="text/javascript">
 		
-	
 	// 进入程序就请求接口
 	// $(document).ready(function(e){	
-        
+  
 
 				    //输出省
 				  $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getProvinceRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getProvinceRegionList", 
                     type:'post',
                     // data:{area:area},
                     dataType:"json",
@@ -115,7 +124,7 @@
 					
 
 					 $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getRegionList", 
                     type:'post',
                     data:{
                     	id:Proid
@@ -147,7 +156,7 @@
 
 
 					 $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getRegionList", 
                     type:'post',
                     data:{
                     	id:Cityid
@@ -205,7 +214,7 @@
 				$.ajax({
 					type: "post",
 					dataType: "json",
-					url: "http://192.168.1.115:8080/gateway/appregion/editRegion",
+					url: "http://172.20.10.2:8080/gateway/appregion/editRegion",
 					data: {
 						regionId: Areaid
 					},
@@ -219,7 +228,7 @@
 				                type: 2,
 				                closeBtn: 0,
 				                title: false,
-				                content: "nameAuthenticate.html?codeId="+codeId,
+				                content: "mine.html?codeId="+codeId,
 				                area: ['100%', '100%'],
 				                yes: function(index) {
 				                    layer.close(index);

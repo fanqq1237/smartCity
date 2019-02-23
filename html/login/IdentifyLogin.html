@@ -20,7 +20,7 @@
 			</div>
 			<div class="layui-row">
 				<div class="layui-col-xs12 logoimg">
-					<div class="logo"><img class="logojpg" src="../img/logo.jpg" /></div>
+					<div class="logo"><img class="logojpg" src="../../img/logo.jpg" /></div>
 					<p class="cityname"><strong>广西农信智慧城市</strong></p>
 				</div>
 			</div>
@@ -33,13 +33,19 @@
 				</div>
 				<div class="layui-form-item">
 					<input id="verification-code" type="text" name=""  placeholder="请输入验证码" lay-verify="required" class="layui-input" required >
-					<span class="display" >验证码格式不正确（4位数字字母）!</span>
+					<span class="display">验证码格式不正确（4位数字字母）!</span>
 				</div>
 				<button type="button" class="layui-btn login_btn" lay-submit="">登录</button>
 			</form>
 			<div class="layui-row footer">
-				<button type="button" class="register_btn">用户注册</button>
-				<button type="button" class="forget">忘记密码</button>
+				<button type="button" class="register_btn">
+					<a class="register-a" href="register.html">用户注册</a>
+				</button>
+				<button type="button" class="forget forget-a">
+				    <!-- <a class="forget-a" href="forgetpassword.html"> -->
+				    忘记密码
+				<!-- </a> -->
+			    </button>
 			</div>
 		</div>
 		<script src="../../js/jquery-3.3.1.min.js"></script>

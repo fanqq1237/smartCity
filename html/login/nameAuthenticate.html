@@ -18,7 +18,7 @@
 				<h2 class="file-title">实名认证</h2>
 				<a href="首页地址" class="next">跳过</a>-->
 				<h2 class="msgTitle">
-                    <a href="javascript:history.back(-1);" class="goBack">
+                    <a href="javascript:;" class="goBack">
                         <i class="layui-icon layui-icon-left"></i> 返回
                     </a>
                 实名认证
@@ -26,7 +26,7 @@
                 </h2>
 			</div>
 
-			<form class="layui-form authen" action="">
+			<form class="layui-form authen">
 				<div class="layui-form-item onerow">
 					<input type="text" id="username" name="number" placeholder="请输入姓名" lay-verify="required" class="layui-input">
 				</div>
@@ -39,28 +39,52 @@
 				</div>
 				<div class="layui-form-item">
 					<input id="phone" type="phone" name="" placeholder="请输入手机号" lay-verify="required" class="layui-input" required>
-					<a href="javascript:;" class="getCode" id="getCode" onclick="getCode(this)">获取验证码</a>
-					<a href="javascript:;" class="getCode" id="resetCode" style="display:none;"><span id="second">60</span>秒后重发</a>
-					<a href="javascript:;" class="getCode" id="resetGetCode" onclick="getCode(this)" style="display:none;">重新获取</a>
+					
 				</div>
 				<div class="layui-form-item">
 					<div class="formInputBox">
-						<input type="text" id="code" name="code" required lay-verify="required" placeholder="请输入验证码   " autocomplete="off" class="layui-input formInput">
+						<input type="text" id="codenum" name="code" required lay-verify="required" placeholder="请输入验证码   " autocomplete="off" class="layui-input formInput">
+						<a href="javascript:;" class="getCode" id="getCode" onclick="getCode(this)">发送验证码</a>
+					    <a href="javascript:;" class="getCode" id="resetCode" style="display:none;"><span id="second">60</span>秒后重发</a>
+					    <a href="javascript:;" class="getCode" id="resetGetCode" onclick="getCode(this)" style="display:none;">重新获取</a>
 
 					</div>
 				</div>
-				<input type="submit" class="layui-btn submit_btn" lay-submit=""></input>
+				<input type="button" class="layui-btn submit_btn" id="formDemo" lay-submit lay-filter="" value="提交"></input>
 			</form>
 		</div>
+
+
 		<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="../../layui/layui.js"></script>
-		<script>
-			layui.use(['form'], function() {
-				var form = layui.form;
+		<!-- <script type="text/javascript" src="../../layui/lay/modules/layui.all.js"></script> -->
+	    <script type="text/javascript">
+			
+		  layui.use(['form', 'layer', 'element', 'laytpl','jquery'], function() {
+            var form = layui.form,
+            layer = layui.layer,
+            element = layui.element,
+            laytpl = layui.laytpl;
+            var $ = layui.jquery;
 
-			});
-		</script>
-		<script>
+
+			
+             //返回按钮
+			 $(".goBack").on("click",function() {
+            	layer.closeAll('iframe');
+            	// var index = parent.layer.getFrameIndex(window.name);
+             //    setTimeout(function(){parent.layer.close(index)}, 1000);
+
+
+
+             //    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+             //    parent.layer.close(index); //再执行关闭
+               });
+			  });
+
+        </script>
+
+        <script>
 			// 判断身份证格式是否正确
 			$('#id-card').blur(function() {
 				var idcard = $('#id-card').val();
@@ -70,6 +94,7 @@
 					return false;
 				}
 			});
+
 		</script>
 		<!--验证银行卡号-->
 		<script>
@@ -92,6 +117,7 @@
 							if(i == 4) account = account + " "; /* 帐号第四位数后加空格 */
 							if(i == 8) account = account + " "; /* 帐号第八位数后加空格 */
 							if(i == 12) account = account + " "; /* 帐号第十二位后数后加空格 */
+							if(i == 16) account = account + " "; /* 帐号第十六位后数后加空格 */
 							account = account + accountNumeric.substr(i, 1)
 						}
 					}
@@ -101,7 +127,7 @@
 				if(account != BankNo.value) BankNo.value = account;
 			}
 		</script>
-		<script>
+        <script type="text/javascript">
 			/*获取验证码*/
 			var isPhone = 1;
 
@@ -109,6 +135,28 @@
 				checkPhone(); //验证手机号码
 				if(isPhone) {
 					resetCode(); //倒计时
+
+
+		   // 向后台传送手机号获取验证码
+		        var phone = $("#phone").val();
+		        var deviceId =123; 
+					$.ajax({
+                    url:"http://192.168.1.108:8080/gateway/appsms/smsAuthForBindingCard", 
+                    type:'post',
+                    data:{
+                    	deviceId:deviceId,
+                    	phonenum:phone
+                    },
+                    dataType:"json",
+                    // contentType:"application/json",
+                    success:function(data){
+                    	// alert("111")
+                        console.log(data);
+
+                        },
+                 
+                    });
+				
 				} else {
 					$('#phone').focus();
 				}
@@ -149,7 +197,72 @@
 					}
 				}, 1000);
 			}
-		</script>
+
+	     //提及表单
+		$("#formDemo").on("click",function(){
+
+				   var username = $("#username").val(); 
+				   var idcard = $("#id-card").val();
+				   var account = $("#account").val();
+				   var phone = $("#phone").val();
+				   var codenum = $("#codenum").val();
+				   var deviceId =123;
+				   // 提交时判断知否为空
+				if(username==''){
+					layer.msg('请填写用户名！');
+					 return false;
+			     }
+			     if(idcard==''){
+					layer.msg('请填写身份证号！');
+					 return false;
+			     }
+			     if(account==''){
+					
+					layer.msg('请填写银行卡账号！');
+					 return false;
+			     }
+			     if(phone==''){
+					
+					layer.msg('请填写手机号！');
+					 return false;
+			     }
+			     if(codenum==''){
+					
+					layer.msg('请填写验证码');
+					 return false;
+			     }
+			     // else{
+
+			 	  $.ajax({
+                    url:"http://192.168.1.108:8080/gateway/appcard/realNameAuthentication", 
+                    type:'post',
+                    dataType:"json",
+                    data:{
+                    	cardnum:account,
+                    	certno:idcard,
+                    	deviceid:deviceId,
+                    	phonenum:phone,
+                    	realname:username,
+                    	smsCode:codenum 
+                    },
+                    success:function(data){     	
+                        console.log(data);
+                        // alert("2222")
+                        if(data.code == "0000") {
+					        window.location.href = "../home/index.html";
+						} else {
+							alert("选择有误")
+						}
+                     }
+                 });
+
+			     // }
+			
+		  });
+                        
+
+        </script>
+
 	</body>
 
 </html>
