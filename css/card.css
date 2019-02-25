@@ -23,11 +23,12 @@ body{
 	color: white;
 }
 .file-title{
-	font-size: 1.25rem;
+	font-size: 1rem;
     height: 3rem;
     line-height: 3rem;
     text-align: center;
     color: #FFFFFF;
+    margin-bottom: 18px;
 }
 a{
 	color: white;
@@ -83,31 +84,53 @@ button{
 /*一次弹窗内容结束*/
 /*第二次更改*/
 .transitCard {
-    margin-top: 25px;
-    margin-bottom: 15px;
-    background-color: rgba(92, 209, 222, 1);
-    border-radius: 10px;
+    margin-top: 18px;
+    /*margin-bottom: 15px;*/
+   background-color: rgb(225, 179, 66);;
+    border-radius: 5px;
     box-shadow: 0px 20px 30px rgba(58, 165, 216, 0.349019607843137);
     padding: 10px;
+    padding-top: 4px;
     color: #fff;
     text-align: right;
     font-size: 1.1rem;
+    margin-left: 0px;
 }
 .transitCard p.title {
 	text-align: left;
+	font-size: 0.9rem;
+
 }
 .transitCard p.title img {
-	width: 1.8rem;
-    height: 1.8rem;
+    width: 1.9rem;
+    height: 1.9rem;
     margin-right: 10px;
+    margin-top: 11px;
+    border-radius: 50%;
 }
 .transitCard p.cardNum {
-    font-size: 2.2rem;
-    margin: 30px auto 15px;
+    font-size: 1.1rem;
+    margin: 15px auto 5px;
+    text-align: left;
+    margin-left: 3rem;
 }
 .transitCard p.cardName span {
-	padding: 4px 10px;
-    background: rgba(255,255,255,.5);
+	padding:  4px 10px;
+    /*background: rgba(255,255,255,.5);*/
     margin-right: -10px;
-    font-size: 1rem;
+    font-size: 0.75rem;
+    margin-left: 2rem;
+}
+.right{
+	font-size: 20px;
+	line-height: 1rem;
+}
+.transitCardBox{
+	width: 96%;
+	padding: 0px 2%; 
+}
+.cardName{
+	text-align: left;
+	font-size: 0.7rem;
+	margin-top: -0.7rem;
 }

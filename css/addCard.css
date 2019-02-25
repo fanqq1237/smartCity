@@ -32,3 +32,6 @@
 .layui-input, .layui-textarea{
 	border-bottom: 1px solid  gainsboro;
 }
+.addgetCode{
+	bottom: 8.5rem;
+}
