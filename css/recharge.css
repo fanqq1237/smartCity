@@ -112,6 +112,7 @@
   margin:2rem 0 1rem;
   font-size:16px;
   font-weight:600;
+  display: inline-block;
 }
 .amountNum {
   line-height:50px;
@@ -124,6 +125,10 @@
 .activeTrue {
   border-color:#005FA6;
   color:#005FA6;
+}
+#aaa{
+	color: #005FA6;
+	margin-left: 30px;
 }
 /* 温馨提示 */
 .tips {

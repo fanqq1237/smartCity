@@ -34,6 +34,9 @@
 				<h2 class="payTitle">
                     充值金额
                 </h2>
+                <span id="aaa">
+                	
+                </span>
 				<div class="layui-row layui-col-space20 amount">
 					<div class=" layui-col-xs4">
 						<div class="amountNum">
@@ -131,6 +134,8 @@
 				$(".rechargeAmount").on("click", ".amountNum", function() {
 					var $this = $(this);
 					$this.addClass("activeTrue").parent().siblings().find(".amountNum").removeClass("activeTrue");
+					var amount = $this.text();
+					$('#aaa').html(amount)
 				});
 				$('#customAmount').on('click',
 					function() {
@@ -142,6 +147,8 @@
 							area: ['300px', '170px'],
 							yes: function(index) {
 								var customAmountVal = $("input[name='customAmount']").val();
+								console.log(('**********',customAmountVal));
+								$('#aaa').html(customAmountVal+'元');
 								//正则验证,只能输入数字与小数点
 								var numPoint = /^(?!0$|0\.00|0\.0|0\d+$)([1-9]?\d+(\.\d*)|(\\s&&[^\\f\\n\\r\\t\\v])|([1-9]*[1-9][0-9]*)?)$/;
 								if(!customAmountVal) {
