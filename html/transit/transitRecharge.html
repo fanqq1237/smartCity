@@ -157,18 +157,28 @@
 							yes: function(index) {
 								var customAmountVal = $("input[name='customAmount']").val();
 								console.log(('**********',customAmountVal));
-								$('#aaa').html(customAmountVal+'元');
+								
 								//正则验证,只能输入数字与小数点
 								var numPoint = /^(?!0$|0\.00|0\.0|0\d+$)([1-9]?\d+(\.\d*)|(\\s&&[^\\f\\n\\r\\t\\v])|([1-9]*[1-9][0-9]*)?)$/;
 								if(!customAmountVal) {
 									layer.msg("请输入金额!");
+									$('#aaa').html($('#customAmount').val());
 								} else if(!numPoint.test(customAmountVal)) {
 									layer.msg("请输入正确格式金额!");
+									$('#aaa').html($('#customAmount').val());
 								} else {
-									$("#customAmount").val(customAmountVal);
+									$("#customAmount").val(customAmountVal+'元');
+									if(customAmountVal==''){
+										var customAmountVal = 0;
+									}else{
+										var customAmountVal = $("input[name='customAmount']").val();
+									}
+									$('#aaa').html(customAmountVal+'元');
 									layer.close(index);
 								}
-
+							},
+							btn2:function(){
+								$('#aaa').html($('#customAmount').val());
 							}
 						});
 					});
