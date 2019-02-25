@@ -86,7 +86,7 @@
 
 				    //输出省
 				  $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getProvinceRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getProvinceRegionList", 
                     type:'post',
                     // data:{area:area},
                     dataType:"json",
@@ -115,7 +115,7 @@
 					
 
 					 $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getRegionList", 
                     type:'post',
                     data:{
                     	id:Proid
@@ -147,7 +147,7 @@
 
 
 					 $.ajax({
-                    url:"http://192.168.1.115:8080/gateway/appregion/getRegionList", 
+                    url:"http://172.20.10.2:8080/gateway/appregion/getRegionList", 
                     type:'post',
                     data:{
                     	id:Cityid
@@ -205,7 +205,7 @@
 				$.ajax({
 					type: "post",
 					dataType: "json",
-					url: "http://192.168.1.115:8080/gateway/appregion/editRegion",
+					url: "http://172.20.10.2:8080/gateway/appregion/editRegion",
 					data: {
 						regionId: Areaid
 					},
