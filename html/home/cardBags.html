@@ -53,25 +53,22 @@
 			$.ajax({
 					url: 'http://192.168.112.45:8080/gateway/appcard/appCardList',
 					type: 'post',
-					data: {
-
-					},
+					data: {},
 					dataType: 'json',
 					success: function (data) {
 						console.log(data);
 						var cardStr = '';
                           for (var i = 0; i < data.data.length; i++) {        	
-							  cardStr += "<div class='layui-col-xs12 layui-col-xs-offset1 transitCard'><p class='title'><img src='../../img/logo.jpg'>广西农信信用社</p><p class='cardName'><span>"+data.data[i].type+"</span></p><p class='cardNum'>"+data.data[i].cardnum+"</p></div>" 
+							  cardStr += "<div class='layui-col-xs12 layui-col-xs-offset1 transitCard'><p class='title'><img src='../../img/logo.jpg'>广西农信信用社</p><p class='cardName'><span>"+data.data[i].type+"</span></p><p class='cardNum'>"+data.data[i].cardnum+"</p></div>"  
 
-							   // alert("cardnum")                 
                             }
                           $("#viewContent").append(cardStr);
 
 					        //删除银行卡的弹窗
 						    //ajax动态获取点击事件无效的解决指令
-						  $(document).on("click", ".transitCard",function(data) {
-
-					                
+                            // var cardnum=$(".cardnum").val();            //获取点击的银行卡账号
+						  $(document).on("click", ".transitCard",function(cardnum) {
+						  	   // alert("cardnum")                    //打印银行卡账号     
 						    // $(".transitCard").on('click', function() {
 										layer.confirm('', {
 											title: false,
@@ -100,30 +97,36 @@
 									});
 									//点击解绑时
 									$(".untying").on('click', function(data) {
-										var cardnum=$(this).attr("data.data.cardnum");
-										console.log(cardnum)
-
+										var cardnum = $(".cardNum").html();
 										   $.ajax({
 												url: 'http://192.168.112.45:8080/gateway/appcard/unBindCard',
 												type: 'post',
 												data: {
-													cardnum：cardnum
+												 cardnum:cardnum
 												},
 												dataType: 'json',
+												async:false,
 												success: function (data) {
+													if(data.code == "0000") {
+														console.log(data);
+														var index = layer.msg("解绑成功!", {
+												            time: 2000
+													       });
 
-													console.log(data);
-													var index = layer.msg("解绑成功", {
-											         time: 2000
-												});
-												layer.close("#opendiv");
-												layer.close(layer.index - 1);
-												layer.close(layer.index - 2);
+														window.location.href = window.location.href;   //删除之后进行页面刷新操作
+
+													}else {
+														layer.msg('选择有误！');
+													}
+												  layer.closeAll();
 													
-												  }
-									})
+												}
+									        })
+
+												// layer.close(layer.index - 1);
+												// layer.close(layer.index - 2);
 										
-							});
+							        });
 								
                            
 
