@@ -271,6 +271,7 @@
         $("#transitBalance").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "cardBalance.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -289,6 +290,7 @@
         $("#transitRecharge").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transitRecharge.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -307,6 +309,7 @@
         $("#transactionDetails").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transactionDetails.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -325,6 +328,7 @@
         $("#serviceRange").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "serviceRange.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,

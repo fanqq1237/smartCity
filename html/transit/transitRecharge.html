@@ -119,6 +119,8 @@
 		<script src="../../js/jquery-3.3.1.min.js"></script>
 		<script src="../../layui/layui.js"></script>
 		<script>
+			var codeId = localStorage.getItem('codeId');
+        	console.log(codeId)
 			layui.use(['form', 'layer', 'element'], function() {
 				var form = layui.form,
 					layer = layui.layer,

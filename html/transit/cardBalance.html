@@ -66,6 +66,8 @@
 	</script>
 
 	<script>
+		var codeId = localStorage.getItem('codeId');
+        console.log(codeId)
 		layui.use(['form', 'layer', 'element', 'laytpl'],
 			function() {
 				var form = layui.form,
