@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../../layui/css/layui.css" />
 		<link rel="stylesheet" href="../../css/base.css" />
 		<link rel="stylesheet" href="../../css/card.css" />
-		<link rel="stylesheet" href="../../css/layer.css" />
+		<!-- <link rel="stylesheet" href="../../css/layer.css" /> -->
 		<title>卡包</title>
 	</head>
 
@@ -36,25 +36,19 @@
 		</div>
 
 		<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="../../layui/layui.js"></script>
-		<!--引用模板引擎-->
-		<!-- <script id="appContent" type="text/html"> -->
-			
-			<div class="layui-col-xs12 layui-col-xs-offset1 transitCard">
-				<p class="title">
-					<img src="../../img/logo.jpg">
-				</p>
-				<p class="cardName">
-					<span></span>
-				</p>
-				<p class="cardNum"></p>
-				
-			</div>
-		
+		<script type="text/javascript" src="../../layui/layui.js"></script>	
+        <script>
+        	layui.use(['laytpl','layer'], function() {
+			    var laytpl = layui.laytpl;
+			    var layer = layui.layer;
 
+     })
+
+	    </script>	
 			
-		<script>
-		//获取银行卡信息
+
+ <script type="text/javascript">
+//获取银行卡信息
 	$(function(){  
 			$.ajax({
 					url: 'http://192.168.112.45:8080/gateway/appcard/appCardList',
@@ -67,84 +61,80 @@
 						console.log(data);
 						var cardStr = '';
                           for (var i = 0; i < data.data.length; i++) {        	
-							  cardStr += "<div class="layui-col-xs11 layui-col-xs-offset1 transitCard"><p class="title"><img src='"+data.data[i].id+"'></p><p class="cardName"><span>"+data.data[i].id+"</span></p><p class="cardNum">"+data.data[i].id+"</p></div>"                    
+							  cardStr += "<div class='layui-col-xs12 layui-col-xs-offset1 transitCard'><p class='title'><img src='../../img/logo.jpg'>广西农信信用社</p><p class='cardName'><span>"+data.data[i].type+"</span></p><p class='cardNum'>"+data.data[i].cardnum+"</p></div>" 
+
+							   // alert("cardnum")                 
                             }
                           $("#viewContent").append(cardStr);
+
+					        //删除银行卡的弹窗
+						    //ajax动态获取点击事件无效的解决指令
+						  $(document).on("click", ".transitCard",function(data) {
+
+					                
+						    // $(".transitCard").on('click', function() {
+										layer.confirm('', {
+											title: false,
+											closeBtn: false,
+											area: '90%;',
+											type: 1,
+											shift: -1,
+											offset: 'b',
+											shadeClose: true,
+											btn: ['解绑', '取消'] //按钮
+										}, function() {
+											var index = layer.open({
+												title: false,
+												closeBtn: false,
+												area: '50%;',
+												type: 1,
+												shift: -1,
+												offset: 'auto', //位置
+												shadeClose: true,
+												content: $('#opendiv')
+											})
+										});
+									});
+									$(".cancel").on('click', function() {
+										layer.closeAll();
+									});
+									//点击解绑时
+									$(".untying").on('click', function(data) {
+										var cardnum=$(this).attr("data.data.cardnum");
+										console.log(cardnum)
+
+										   $.ajax({
+												url: 'http://192.168.112.45:8080/gateway/appcard/unBindCard',
+												type: 'post',
+												data: {
+													cardnum：cardnum
+												},
+												dataType: 'json',
+												success: function (data) {
+
+													console.log(data);
+													var index = layer.msg("解绑成功", {
+											         time: 2000
+												});
+												layer.close("#opendiv");
+												layer.close(layer.index - 1);
+												layer.close(layer.index - 2);
+													
+												  }
+									})
+										
+							});
+								
+                           
+
+
 					  }
 				})
+	
+           });
 
 
-     })
-
-
-
-
-			// layui.use(['laytpl','layer'], function() {
-			// 	var laytpl = layui.laytpl;
-			// 	var layer = layui.layer;
-			// 	var appData = { //数据
-					// "title": "应用模板引擎",
-					// "appList": [{
-							// "cardImg": "../../img/sy_gjc.png",
-							// "cardName": "广西农信信用社",
-							// "cardWeihao": "****  ****  ****  138",
-							// "cardType": "信用卡"
-						// },
-						// {
-							// "cardImg": "../../img/sy_gjc.png",
-							// "cardName": "广西农信信用社",
-							// "cardWeihao": "****  ****  ****  142",
-							// "cardType": "储蓄卡"
-						// },
-						// {
-							// "cardImg": "../../img/sy_gjc.png",
-							// "cardName": "广西农信信用社",
-							// "cardWeihao": "****  ****  ****  139",
-							// "cardType": "信用卡"
-						
-				
-				
-				// var getAppTpl = appContent.innerHTML,
-				// 	appView = document.getElementById('viewContent');
-				// laytpl(getAppTpl).render(appData, function(html) {
-				// 	appView.innerHTML = html;
-			
-		//弹窗
-			$(".transitCard").on('click', function() {
-				layer.confirm('', {
-					title: false,
-					closeBtn: false,
-					area: '90%;',
-					type: 1,
-					shift: -1,
-					offset: 'b',
-					shadeClose: true,
-					btn: ['解绑', '取消'] //按钮
-				}, function() {
-					var index = layer.open({
-						title: false,
-						closeBtn: false,
-						area: '50%;',
-						type: 1,
-						shift: -1,
-						offset: 'auto', //位置
-						shadeClose: true,
-						content: $('#opendiv')
-					})
-				});
-			});
-			$(".cancel").on('click', function() {
-				layer.closeAll();
-			});
-			$(".untying").on('click', function() {
-				var index = layer.msg("解绑成功", {
-					time: 2000
-				});
-				layer.close("#opendiv");
-				layer.close(layer.index - 1);
-				layer.close(layer.index - 2);
-			});
-			});
+	
 		</script>
 		
 	</body>
