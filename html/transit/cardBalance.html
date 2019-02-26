@@ -26,7 +26,7 @@
 					<div class="layui-col-xs12  establishmentcard">
 						<p>可用余额(元)</p>
 						<p class="availableMoney">125.00</p>
-						<p class="availableCard">卡号： <span>20187740369</span></p>
+						<p class="availableCard">卡号： <span></span></p>
 					</div>
 				</div>
 			</div>
@@ -50,8 +50,7 @@
 							充值
 						</div>
 				<a href="javascript:;">
-					<i class="layui-icon layui-icon-right icon-right">
-					</i>
+					<i class="layui-icon layui-icon-right icon-right" id="transitRecharge"></i>
 				</a>
 				</div>
 				<p class="text">说明: <span>由于网络原因,余额可能有延时更新</span> <i class="layui-icon layui-icon-about">
@@ -68,6 +67,7 @@
 	<script>
 		var codeId = localStorage.getItem('codeId');
         console.log(codeId)
+        $('.availableCard span').html(codeId)
 		layui.use(['form', 'layer', 'element', 'laytpl'],
 			function() {
 				var form = layui.form,
@@ -81,6 +81,26 @@
 				parent.layer.close(index);
 			});
 		});
+		
+		// 充值
+        $("#transitRecharge").on("click",function(){
+//          var codeId = $("#cardMsg").val().replace(/\s*/g,"");
+//          //window.location.href = "transitRecharge.html?codeId="+codeId;
+//          localStorage.setItem("codeId",codeId);
+            layer.open({
+                type: 2,
+                closeBtn: 0,
+                title: false,
+                content: "transitRecharge.html?codeId="+codeId,
+                area: ['100%', '100%'],
+                yes: function(index) {
+                    layer.close(index);
+                },
+                end: function() {
+                    form.render();
+                }
+            });
+        });
 	</script>
 
 </html>

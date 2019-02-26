@@ -29,7 +29,7 @@
 			<div class="layui-row CardBox">
 				<div class="layui-col-xs12 transit_card">
 					<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-					<p class="cardNumber">2013 1811 132</p>
+					<p class="cardNumber"></p>
 					<p class="cardName"><span>城市云卡</span></p>
 				</div>
 			</div>
@@ -121,6 +121,7 @@
 		<script>
 			var codeId = localStorage.getItem('codeId');
         	console.log(codeId)
+        	$('.cardNumber').html(codeId)
 			layui.use(['form', 'layer', 'element'], function() {
 				var form = layui.form,
 					layer = layui.layer,
