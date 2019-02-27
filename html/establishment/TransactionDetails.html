@@ -16,8 +16,7 @@
             <div class="layui-row transitContent">
                 <h2 class="transitTitle">
                     <a href="javascript:;" class="back ofenBack">
-                        <i class="layui-icon layui-icon-left">
-                        </i>
+                        <i class="layui-icon layui-icon-left"></i>
                         返回
                     </a>
                     交易明细
@@ -131,6 +130,8 @@
         {{# }); }}
     </script>
     <script>
+    	var codeId = localStorage.getItem('codeId');
+        console.log(codeId)
         layui.use(['form', 'layer', 'element', 'laytpl'],
         function() {
             var form = layui.form,

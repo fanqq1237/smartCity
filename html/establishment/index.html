@@ -38,36 +38,41 @@
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-									<p class="cardNum">2013 1811 131</p>
-									<p class="cardName"><span>城市云卡</span></p>
+                                    <p class="mmm" style="display: none;">2013 1811 000</p>
+                                    <p class="cardNum"></p>
+                                    <p class="cardName"><span>城市云卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-									<p class="cardNum">2013 1811 132</p>
-									<p class="cardName"><span>城市云卡</span></p>
+                                    <p class="mmm" style="display: none;">2013 1811 111</p>
+                                    <p class="cardNum"></p>
+                                    <p class="cardName"><span>城市云卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-									<p class="cardNum">2013 1811 133</p>
-									<p class="cardName"><span>城市云卡</span></p>
+                                    <p class="mmm" style="display: none;">2013 1811 222</p>
+                                    <p class="cardNum"></p>
+                                    <p class="cardName"><span>城市云卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-									<p class="cardNum">2013 1811 134</p>
-									<p class="cardName"><span>城市云卡</span></p>
+                                    <p class="mmm" style="display: none;">2013 1811 333</p>
+                                    <p class="cardNum"></p>
+                                    <p class="cardName"><span>城市云卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-									<p class="cardNum">2013 1811 135</p>
-									<p class="cardName"><span>城市云卡</span></p>
+                                    <p class="mmm" style="display: none;">2013 1811 444</p>
+                                    <p class="cardNum"></p>
+                                    <p class="cardName"><span>城市云卡</span></p>
 								</div>
 							</div>
 						</div>
@@ -155,7 +160,7 @@
 					</a>
 				</div>
 				<div class="layui-col-xs6">
-					<a href="javascript:;" id="serviceRange">
+					<a href="javascript:;" id="attendanceRecord">
 						<div class="layui-row contentOne">
 							<div class="layui-col-xs5">
 								<img src="../../img/sy_gjc.png">
@@ -167,7 +172,7 @@
 					</a>
 				</div>
 				<div class="layui-col-xs6">
-					<a href="javascript:;" id="serviceRange">
+					<a href="javascript:;" id="untying">
 						<div class="layui-row contentOne">
 							<div class="layui-col-xs5">
 								<img src="../../img/sy_gjc.png">
@@ -179,7 +184,7 @@
 					</a>
 				</div>
 				<div class="layui-col-xs6">
-					<a href="javascript:;" id="serviceRange">
+					<a href="javascript:;" id="cardLoss">
 						<div class="layui-row contentOne">
 							<div class="layui-col-xs5">
 								<img src="../../img/sy_gjc.png">
@@ -272,10 +277,19 @@
 			},
 			on: {
 				transitionEnd: function() {
+//					console.log(this.slides.eq(this.activeIndex).html());
+//					var $this = this.slides.eq(this.activeIndex);
+//					console.log(this.slides.eq(this.activeIndex).find(".cardNum").text());
+//					$("#cardMsg").val($this.find(".cardNum").text());
+
 					console.log(this.slides.eq(this.activeIndex).html());
-					var $this = this.slides.eq(this.activeIndex);
-					console.log(this.slides.eq(this.activeIndex).find(".cardNum").text());
-					$("#cardMsg").val($this.find(".cardNum").text());
+                    var $this = this.slides.eq(this.activeIndex);
+//                  console.log(this.slides.eq(this.activeIndex).find(".mmm").text());
+                    $("#cardMsg").val($this.find(".mmm").text());                   
+                    var data = this.slides.eq(this.activeIndex).find(".mmm").text();
+			        var nnn = data.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2");
+//					console.log(nnn)
+					$('.cardNum').html(nnn)
 				}
 			}
 		});
@@ -283,6 +297,7 @@
 		$("#PaymentCode").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "myTransitCard.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
@@ -301,6 +316,7 @@
 		$("#sweep").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "myTransitCard.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
@@ -319,6 +335,7 @@
 		$("#transitBalance").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "cardBalance.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
@@ -337,6 +354,7 @@
 		$("#transitRecharge").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "transitRecharge.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
@@ -355,6 +373,7 @@
 		$("#transactionDetails").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "transactionDetails.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
@@ -373,11 +392,12 @@
 		$("#serviceRange").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "serviceRange.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
 				title: false,
-				content: "serviceRange.html?codeId=" + codeId,
+				content: "accessControl.html?codeId=" + codeId,
 				area: ['100%', '100%'],
 				yes: function(index) {
 					layer.close(index);
@@ -388,14 +408,15 @@
 			});
 		});
 		// 考勤记录
-		$("#transitCode").on("click", function() {
+		$("#attendanceRecord").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "myTransitCard.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
 				title: false,
-				content: "myTransitCard.html?codeId=" + codeId,
+				content: "attendanceRecord.html?codeId=" + codeId,
 				area: ['100%', '100%'],
 				yes: function(index) {
 					layer.close(index);
@@ -406,14 +427,15 @@
 			});
 		});
 		// 解绑
-		$("#transitCode").on("click", function() {
+		$("#untying").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "myTransitCard.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
 				title: false,
-				content: "myTransitCard.html?codeId=" + codeId,
+				content: "untying.html?codeId=" + codeId,
 				area: ['100%', '100%'],
 				yes: function(index) {
 					layer.close(index);
@@ -424,14 +446,15 @@
 			});
 		});
 		// 挂失
-		$("#transitCode").on("click", function() {
+		$("#cardLoss").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
 			//window.location.href = "myTransitCard.html?codeId="+codeId;
+			localStorage.setItem("codeId",codeId);
 			layer.open({
 				type: 2,
 				closeBtn: 0,
 				title: false,
-				content: "myTransitCard.html?codeId=" + codeId,
+				content: "cardLoss.html?codeId=" + codeId,
 				area: ['100%', '100%'],
 				yes: function(index) {
 					layer.close(index);
