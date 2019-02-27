@@ -382,3 +382,11 @@
 	width: 10px;
 	height: 10px;
 }
+.add {
+    position: absolute;
+    right: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #489CF5;
+    background-color: rgba(153, 153, 153, 0);
+}
