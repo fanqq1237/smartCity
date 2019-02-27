@@ -8,9 +8,14 @@
 		<link rel="stylesheet" href="../../layui/css/layui.css">
 		<link rel="stylesheet" href="../../css/base.css">
 		<link rel="stylesheet" href="../../css/schoolrecharge.css">
+		<style type="text/css">
+			.layui-layer-page .layui-layer-btn {
+			    padding-top: 0px!important;
+			}
+		</style>
 	</head>
 
-	<body style="background:#fff;">
+	<body>
 		<div class="layui-fluid">
 			<div class="layui-row card_content">
 				<h2 class="cardTitle">
@@ -23,11 +28,9 @@
 			<!--卡内容-->
 			<div class="layui-row CardBox">
 				<div class="layui-col-xs12 transit_card">
-					<p class="title">
-					<!-- <img src="../../img/sy_gjc.png"> -->
-					北京大学</p>
-					<p class="cardNumber">李明 2013 1811 132</p>
-					<p class="cardName"><span>校园卡</span></p>
+					<p class="title">北京大学</p>
+					<p class="cardNumber"></p>
+					<p class="cardName"><span>城市云卡</span></p>
 				</div>
 			</div>
 
@@ -36,6 +39,9 @@
 				<h2 class="payTitle">
                     充值金额
                 </h2>
+                <span id="aaa">
+                	
+                </span>
 				<div class="layui-row layui-col-space20 amount">
 					<div class=" layui-col-xs4">
 						<div class="amountNum">
@@ -113,6 +119,9 @@
 		<script src="../../js/jquery-3.3.1.min.js"></script>
 		<script src="../../layui/layui.js"></script>
 		<script>
+			var codeId = localStorage.getItem('codeId');
+        	console.log(codeId)
+        	$('.cardNumber').html(codeId)
 			layui.use(['form', 'layer', 'element'], function() {
 				var form = layui.form,
 					layer = layui.layer,
@@ -133,6 +142,9 @@
 				$(".rechargeAmount").on("click", ".amountNum", function() {
 					var $this = $(this);
 					$this.addClass("activeTrue").parent().siblings().find(".amountNum").removeClass("activeTrue");
+					
+					var amount = $this.text();
+					$('#aaa').html(amount)
 				});
 				$('#customAmount').on('click',
 					function() {
@@ -144,17 +156,32 @@
 							area: ['300px', '170px'],
 							yes: function(index) {
 								var customAmountVal = $("input[name='customAmount']").val();
+								console.log(('**********',customAmountVal));
+								
 								//正则验证,只能输入数字与小数点
 								var numPoint = /^(?!0$|0\.00|0\.0|0\d+$)([1-9]?\d+(\.\d*)|(\\s&&[^\\f\\n\\r\\t\\v])|([1-9]*[1-9][0-9]*)?)$/;
 								if(!customAmountVal) {
 									layer.msg("请输入金额!");
+									$('#aaa').html($('#customAmount').val());
 								} else if(!numPoint.test(customAmountVal)) {
 									layer.msg("请输入正确格式金额!");
+									$('#aaa').html($('#customAmount').val());
 								} else {
-									$("#customAmount").val(customAmountVal);
+									$("#customAmount").val(customAmountVal+'元');
+									if(customAmountVal==''){
+										var customAmountVal = 0;
+									}else{
+										var customAmountVal = $("input[name='customAmount']").val();
+									}
+									$('#aaa').html(customAmountVal+'元');
 									layer.close(index);
 								}
-
+							},
+							btn2:function(){
+								$('#aaa').html($('#customAmount').val());
+							},
+							cancel: function(){
+								$('#aaa').html($('#customAmount').val());
 							}
 						});
 					});

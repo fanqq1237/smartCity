@@ -290,6 +290,7 @@
         $(".addschool").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "myTransitCard.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -310,6 +311,7 @@
         $("#scan").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "myTransitCard.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -328,6 +330,7 @@
         $("#cardBalance").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "cardBalance.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -346,6 +349,7 @@
         $("#schoolRecharge").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transitRecharge.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -364,6 +368,7 @@
         $("#schooltransactionDetails").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transactionDetails.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -382,6 +387,7 @@
         $("#schoolpay").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "serviceRange.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -400,6 +406,7 @@
         $("#attendanceRecord").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "cardBalance.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -418,6 +425,7 @@
         $("#accessControl").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transitRecharge.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -436,6 +444,7 @@
         $("#untying").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "transactionDetails.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,
@@ -454,6 +463,7 @@
         $("#cardLoss").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
             //window.location.href = "serviceRange.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
             layer.open({
                 type: 2,
                 closeBtn: 0,

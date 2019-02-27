@@ -38,41 +38,36 @@
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-                                    <p class="mmm" style="display: none;">2013 1811 000</p>
-                                    <p class="cardNum"></p>
-                                    <p class="cardName"><span>城市云卡</span></p>
+                                    <p class="cardNum">2013  1811  131</p>
+                                    <p class="cardName"><span>校园卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-                                    <p class="mmm" style="display: none;">2013 1811 111</p>
-                                    <p class="cardNum"></p>
-                                    <p class="cardName"><span>城市云卡</span></p>
+                                    <p class="cardNum">2013  1811  132</p>
+                                    <p class="cardName"><span>校园卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-                                    <p class="mmm" style="display: none;">2013 1811 222</p>
-                                    <p class="cardNum"></p>
-                                    <p class="cardName"><span>城市云卡</span></p>
+                                    <p class="cardNum">2013  1811  133</p>
+                                    <p class="cardName"><span>校园卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-                                    <p class="mmm" style="display: none;">2013 1811 333</p>
-                                    <p class="cardNum"></p>
-                                    <p class="cardName"><span>城市云卡</span></p>
+                                    <p class="cardNum">2013  1811  134</p>
+                                    <p class="cardName"><span>校园卡</span></p>
 								</div>
 							</div>
 							<div class="swiper-slide">
 								<div class="transitCard">
 									<p class="title"><img src="../../img/sy_gjc.png">广西农信城市云卡</p>
-                                    <p class="mmm" style="display: none;">2013 1811 444</p>
-                                    <p class="cardNum"></p>
-                                    <p class="cardName"><span>城市云卡</span></p>
+                                    <p class="cardNum">2013  1811  136</p>
+                                    <p class="cardName"><span>校园卡</span></p>
 								</div>
 							</div>
 						</div>
@@ -277,19 +272,19 @@
 			},
 			on: {
 				transitionEnd: function() {
-//					console.log(this.slides.eq(this.activeIndex).html());
-//					var $this = this.slides.eq(this.activeIndex);
-//					console.log(this.slides.eq(this.activeIndex).find(".cardNum").text());
-//					$("#cardMsg").val($this.find(".cardNum").text());
-
 					console.log(this.slides.eq(this.activeIndex).html());
-                    var $this = this.slides.eq(this.activeIndex);
-//                  console.log(this.slides.eq(this.activeIndex).find(".mmm").text());
-                    $("#cardMsg").val($this.find(".mmm").text());                   
-                    var data = this.slides.eq(this.activeIndex).find(".mmm").text();
-			        var nnn = data.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2");
-//					console.log(nnn)
-					$('.cardNum').html(nnn)
+					var $this = this.slides.eq(this.activeIndex);
+					console.log(this.slides.eq(this.activeIndex).find(".cardNum").text());
+					$("#cardMsg").val($this.find(".cardNum").text());
+
+//					console.log(this.slides.eq(this.activeIndex).html());
+//                  var $this = this.slides.eq(this.activeIndex);
+////                  console.log(this.slides.eq(this.activeIndex).find(".mmm").text());
+//                  $("#cardMsg").val($this.find(".mmm").text());                   
+//                  var data = this.slides.eq(this.activeIndex).find(".mmm").text();
+//			        var nnn = data.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2");
+////					console.log(nnn)
+//					$('.cardNum').html(nnn)
 				}
 			}
 		});

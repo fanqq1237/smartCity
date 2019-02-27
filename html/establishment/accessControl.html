@@ -37,6 +37,8 @@
 				{{# }); }} {{# if(d.appList.length === 0){ }} {{# } }}
 			</script>
 			<script>
+				var codeId = localStorage.getItem('codeId');
+        		console.log(codeId)
 				layui.use(['laytpl', 'layer'], function() {
 					var laytpl = layui.laytpl;
 					var layer = layui.layer;

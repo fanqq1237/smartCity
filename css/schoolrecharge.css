@@ -112,6 +112,11 @@
   margin:2rem 0 1rem;
   font-size:16px;
   font-weight:600;
+  display: inline-block;
+}
+#aaa {
+    color: #005FA6;
+    margin-left: 30px;
 }
 .amountNum {
   line-height:50px;
