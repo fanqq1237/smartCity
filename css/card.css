@@ -111,8 +111,8 @@ button{
 .transitCard p.cardNum {
     font-size: 1.1rem;
     margin: 15px auto 10px;
-    text-align: left;
-    margin-left: 3rem;
+    text-align: center;
+   /* margin-left: 3rem;*/
 }
 .transitCard p.cardName span {
 	padding:  4px 10px;

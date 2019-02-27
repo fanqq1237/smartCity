@@ -59,9 +59,10 @@
 						console.log(data);
 						var cardStr = '';
                           for (var i = 0; i < data.data.length; i++) {        	
-							  cardStr += "<div class='layui-col-xs12 layui-col-xs-offset1 transitCard'><p class='title'><img src='../../img/logo.jpg'>广西农信信用社</p><p class='cardName'><span>"+data.data[i].type+"</span></p><p class='cardNum'>"+data.data[i].cardnum+"</p></div>"  
+							  cardStr += "<div class='layui-col-xs12 layui-col-xs-offset1 transitCard'><p class='title'><img src='../../img/logo.jpg'>广西农信信用社</p><p class='cardName'><span>"+data.data[i].type+"</span></p><p class='cardNum'>"+data.data[i].cardnum.replace(/^(\d{4})\d+(\d{4})$/, "$1&nbsp&nbsp&nbsp&nbsp****&nbsp&nbsp&nbsp&nbsp****&nbsp&nbsp&nbsp&nbsp$2")+"</p></div>"  
 
                             }
+                            // new Array(16).join('data') + cardNum.slice(15);
                           $("#viewContent").append(cardStr);
 
 					        //删除银行卡的弹窗
@@ -109,22 +110,31 @@
 												success: function (data) {
 													if(data.code == "0000") {
 														console.log(data);
-														var index = layer.msg("解绑成功!", {
-												            time: 2000
-													       });
+														var index = layer.msg("解绑成功", {
+																time: 2000
+															});
+															layer.close("#opendiv");
+															layer.close(layer.index - 1);
+															layer.close(layer.index - 2);
+                                                        function g(){
 
-														window.location.href = window.location.href;   //删除之后进行页面刷新操作
+															    window.location.href = window.location.href;   //删除之后进行页面刷新操作
+															}
+															//使用js计时器功能
+															setInterval(g,3000);
+														
 
 													}else {
-														layer.msg('选择有误！');
+													   layer.msg('解绑失败！');
 													}
-												  layer.closeAll();
+												        layer.close("#opendiv");
+														layer.close(layer.index - 1);
+														layer.close(layer.index - 2);
 													
 												}
 									        })
 
-												// layer.close(layer.index - 1);
-												// layer.close(layer.index - 2);
+												
 										
 							        });
 								
