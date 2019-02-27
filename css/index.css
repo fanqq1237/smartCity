@@ -1,8 +1,19 @@
 /* 头部内容 */
+.bg-top{
+	background-image: url("../img/bg-top.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	min-height: 30vh;
+}
 .payContent {
-	margin: 0 -15px;
-	padding: 2rem 1rem 1.5rem;
-	background-color: #005FA6;
+	position: relative;
+    top: 12vh;
+    background-color: #fff;
+    padding: 1.3vh 0;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 18px #c1c1c1;
 }
 
 .payContent .img-txt,.footer .img-txt {
@@ -11,7 +22,10 @@
 }
 
 .payContent .img-txt img {
-	width: 3.5rem;
+	width: 2rem;
+}
+.payContent .img-txt h3{
+	color: #2196F3;
 }
 
 /* 应用 */

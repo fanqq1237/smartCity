@@ -15,7 +15,7 @@
 		<div class="layui-fluid">
 			<div class="layui-row untyingContent">
 				<h2 class="file-title">
-					<a href="javascript:history.back(-1);" class="back">
+					<a href="javascript:;" class="back ofenBack">
 						<i class="layui-icon layui-icon-left"></i>返回
 					</a>
 						解绑
@@ -42,9 +42,17 @@
 			{{# }); }} {{# if(d.appList.length === 0){ }} {{# } }}
 		</script>
 		<script>
+			var codeId = localStorage.getItem('codeId');
+        	console.log(codeId)
 			layui.use(['laytpl', 'layer'], function() {
 				var laytpl = layui.laytpl;
 				var layer = layui.layer;
+				//返回按钮
+	            $(".ofenBack").on("click",
+	            function() {
+	                var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+	                parent.layer.close(index); //再执行关闭
+	            });
 				var appData = { //数据
 					"title": "应用模板引擎",
 					"appList": [{
