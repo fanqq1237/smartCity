@@ -40,7 +40,7 @@
                                     <p class="title">
                                        <!--  <img src="../../img/sy_gjc.png"> -->
                                         北京大学</p>
-                                    <p class="cardNum">李明   2013  1811  131</p>
+                                    <p class="cardNum">李明   <span>2013  1811  131</span></p>
                                     <p class="cardName"><span>校园卡</span></p>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 <div class="transitCard">
                                     <p class="title">
                                      <!-- <img src="../../img/sy_gjc.png"> -->清华大学</p>
-                                    <p class="cardNum">天一   2013  1811  132</p>
+                                    <p class="cardNum">天一   <span>2013  1811  132</span></p>
                                     <p class="cardName"><span>校园卡</span></p>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                 <div class="transitCard">
                                     <p class="title">
                                     <!-- <img src="../../img/sy_gjc.png"> -->洛阳理工</p>
-                                    <p class="cardNum">小花   2013  1811  133</p>
+                                    <p class="cardNum">小花   <span>2013  1811  133</span></p>
                                     <p class="cardName"><span>校园卡</span></p>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                                 <div class="transitCard">
                                     <p class="title">
                                     <!-- <img src="../../img/sy_gjc.png"> -->河南广播电视大学</p>
-                                    <p class="cardNum">小欧   2013  1811  134</p>
+                                    <p class="cardNum">小欧   <span>2013  1811  134</span></p>
                                     <p class="cardName"><span>校园卡</span></p>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                 <div class="transitCard">
                                     <p class="title">
                                     <!-- <img src="../../img/sy_gjc.png"> -->广西壮族大学</p>
-                                    <p class="cardNum">小美   2013  1811  135</p>
+                                    <p class="cardNum">小美   <span>2013  1811  135</span></p>
                                     <p class="cardName"><span>校园卡</span></p>
                                 </div>
                             </div>
@@ -280,8 +280,8 @@
                  transitionEnd: function(){
                     console.log(this.slides.eq(this.activeIndex).html());
                     var $this = this.slides.eq(this.activeIndex);
-                    console.log(this.slides.eq(this.activeIndex).find(".cardNum").text());
-                    $("#cardMsg").val($this.find(".cardNum").text());
+                    console.log(this.slides.eq(this.activeIndex).find(".cardNum span").text());
+                    $("#cardMsg").val($this.find(".cardNum span").text());
                 }
             }
         });
