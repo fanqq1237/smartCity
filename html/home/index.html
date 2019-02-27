@@ -9,18 +9,10 @@
 	<link rel="stylesheet" href="../../css/index.css">
 </head>
 <body>
-	<div class="layui-fluid">
-		<!-- header -->
+	<!-- header -->
+	<div class="bg-top">
 		<div class="layui-row payContent">
-			<div class="layui-col-xs4">
-				<a href="javascript:;">
-					<div class="img-txt">
-						<img src="../../img/busCode.png" alt="">
-						<h3>乘车码</h3>
-					</div>
-				</a>
-			</div>
-			<div class="layui-col-xs4">
+			<div class="layui-col-xs6">
 				<a href="recharge.html">
 					<div class="img-txt">
 						<img src="../../img/recharge.png" alt="">
@@ -28,8 +20,8 @@
 					</div>
 				</a>
 			</div>
-			<div class="layui-col-xs4">
-				<a href="javascript:;">
+			<div class="layui-col-xs6">
+				<a href="cardBags.html">
 					<div class="img-txt">
 						<img src="../../img/cardPackage.png" alt="">
 						<h3>卡包</h3>
@@ -37,6 +29,8 @@
 				</a>
 			</div>
 		</div>
+	</div>
+	<div class="layui-fluid">
 		<!-- end-header -->
 		<!-- App -->
 		<div class="layui-row appContent" id="appView"></div>
@@ -59,7 +53,7 @@
 			</a>
 		</div>
 		<div class="layui-col-xs4">
-			<a href="javascript:;">
+			<a href="../msgCenter/index.html">
 				<div class="img-txt">
 					<img src="../../img/sy_msg.png" alt="">
 					<h3>消息</h3>
@@ -177,7 +171,7 @@
 					</div>
 				</div>
 			{{# } }}
-			{{# if( item.dataType === 1 ){ }}
+			<!-- {{# if( item.dataType === 1 ){ }}
 				<div class="noticeTitleBox">
 					<div class="layui-col-xs1">
 						<img class="imgNotice" src="{{ item.imgNotice }}" alt="">
@@ -196,7 +190,7 @@
 						<i class="layui-icon grayBox-icon"></i><small>{{ item.noticeTime }}分钟前</small>
 					</div>
 				</div>
-			{{# } }}
+			{{# } }} -->
 		{{#  }); }}
 	</script>
 	<!-- end-智慧城市消息通知模板引擎 -->
@@ -213,7 +207,7 @@
 			  "title":"应用模板引擎"
 			  ,"appList":[
 				  {
-				  	"appLogo":"../../img/sy_qc.png",
+				  	"appLogo":"../../img/sy_gj.png",
 					  "appName":"公交"
 					},
 					{
@@ -221,24 +215,24 @@
 						"appName":"学校"
 					},
 					{
-						"appLogo":"../../img/sy_school.png",
-						"appName":"郑州大学-伊雪"
-					},
-					{
 						"appLogo":"../../img/sy_qy.png",
 						"appName":"企业"
 					},
 					{
-						"appLogo":"../../img/sy_sq.png",
-						"appName":"社区"
+						"appLogo":"../../img/sy_store.png",
+						"appName":"利农商城"
 					},
 					{
-						"appLogo":"../../img/sy_yiyuan.png",
+						"appLogo":"../../img/sy_hospital.png",
 						"appName":"医疗"
 					},
 					{
 						"appLogo":"../../img/sy_qy.png",
 						"appName":"综合缴费"
+					},
+					{
+						"appLogo":"../../img/sy_sq.png",
+						"appName":"社区"
 					},
 					{
 						"appLogo":"../../img/sy_more.png",
@@ -274,14 +268,14 @@
 						"noticeTime" : "3",
 						"noticeCover" : "../../img/sy_jiang.png"
 					},
-					{
-						"dataType" : 1,
-						"imgNotice" : "../../img/sy_gjc.png",
-						"noticeApp" : "公交充值中心",
-						"rechargeMsg" : "赵**女士，您好，您卡号为23423548275819277584的公交卡于2019-01-01充值100元成功成功成功。",
-						"noticeTime" : "5",
-						"noticeCover" : " "
-					},
+					// {
+					// 	"dataType" : 1,
+					// 	"imgNotice" : "../../img/sy_gjc.png",
+					// 	"noticeApp" : "公交充值中心",
+					// 	"rechargeMsg" : "赵**女士，您好，您卡号为23423548275819277584的公交卡于2019-01-01充值100元成功成功成功。",
+					// 	"noticeTime" : "5",
+					// 	"noticeCover" : " "
+					// },
 				],
 			}
 			// $.ajax({
