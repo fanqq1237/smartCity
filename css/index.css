@@ -1,17 +1,18 @@
+
 /* 头部内容 */
 .bg-top{
 	background-image: url("../img/bg-top.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	min-height: 30vh;
+	min-height: 33vh;
 }
 .payContent {
 	position: relative;
-    top: 12vh;
+    top: 17vh;
     background-color: #fff;
-    padding: 1.3vh 0;
-    width: 94%;
-    margin-left: 3%;
+    padding: 0.7vh 9%;
+    width: 76%;
+    margin: 0 3%;
     border-radius: 10px;
     box-shadow: 0px 0px 18px #c1c1c1;
 }
@@ -22,27 +23,33 @@
 }
 
 .payContent .img-txt img {
-	width: 2rem;
+	width: 1.7rem;
+	height:1.7rem; 
+	margin-top:0.2rem;
 }
 .payContent .img-txt h3{
 	color: #2196F3;
+	/*line-height: 2rem;*/
+	margin-top:0.2rem;
+    font-size: .82rem;
 }
 
 /* 应用 */
 .appContent {
-	margin: 1rem 0;
+	margin-bottom:0.5rem;
+	padding-bottom:0.65rem;
 	background-color: #fff;
 	color: #000;
 }
 
 .appContent .img-txt {
-	margin-top: 1rem;
+	margin-top: 0.65rem;
 	text-align: center;
 }
 
 .appContent .img-txt h3 {
-	line-height: 2rem;
-    font-size: .88rem;
+	margin-top: 0.1rem;
+    font-size: .82rem;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -51,14 +58,15 @@
 }
 
 .appContent .img-txt img {
-	width: 2.82rem;
-	height: 2.82rem;
+	width: 2.6rem;
+	height: 2.6rem;
 }
 
 /* 最新动态 */
 .lastestNews {
 	padding: 0 1rem;
     margin-bottom: 4rem;
+    background-color: #fff;
 }
 
 .smartCityNotice {
@@ -66,35 +74,44 @@
 }
 
 .lastestNewsTitle {
-	margin: 2rem 0 1rem;
-	font: 600 19px/20px '黑体'
+	padding: 1rem 0 0.4rem;
+	font: 600 18px/20px '黑体'
 }
 
 .noticeTitleBox {
-    margin: 1rem 0;
+    margin: 0rem 0 0.2rem;
     overflow: hidden;
 }
 
 .noticeTitleBox .imgNotice {
 	display: inline-block;
-	width: 2rem;
-	padding: .2rem;
+	width: 1.5rem;
+	padding: 0rem .2rem .2rem;
 }
 
 .noticeTitleBox .noticeTitle {
-	margin-left: 1rem;
+	margin-left: 0.7rem;
 }
 
 .noticeTitleBox .noticeTitle p {
-	color: #333;
+	color: #000;
 }
 
 .noticeTitleBox .noticeTitle small {
 	color: #aaa;
 }
+.noticeTxt {
+	margin-right:1.5rem;
 
+}
+.noticeimg img {
+	height: 5rem;
+
+}
 .noticeTxt h2 {
-	font: 600 15px/25px 'Arial Verdana';
+	font: 500 14px/25px 'Arial Verdana';
+	color: #000;
+	line-height:1.2rem;
 }
 
 .noticeTxt small {
@@ -152,4 +169,15 @@
    	-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
    	-webkit-line-clamp: 2; /** 显示的行数 **/
    	overflow: hidden;  /** 隐藏超出的内容 **/
+}
+.line{
+	height:0.5rem;
+	width: 120%;
+	margin-left:-15px;
+	
+
+}
+.layui-fluid{
+	padding:0;
+	background:#f7f7f7;  
 }
