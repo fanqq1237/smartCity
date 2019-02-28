@@ -79,9 +79,10 @@
 	<!--end-->
 	<script>
 		var codeId = localStorage.getItem('codeId');
-		var content = localStorage.getItem('content');
+		var content1 = localStorage.getItem('content1');
         console.log(codeId)
-        $('.schoolName').html(content)
+        console.log(content1)
+        $('.schoolName').html(content1)
 		layui.use(['form', 'layedit', 'laydate'], function() {
 			var form = layui.form;
 			//监听提交

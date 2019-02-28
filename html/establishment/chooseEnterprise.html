@@ -273,11 +273,11 @@
                 var $this = $(this);
                 var chooseName = $this.find("span").text();
                 $('#choose').val(chooseName);
+                var content1 = $("#choose").val()
+                localStorage.setItem("content1",content1);
+                console.log(content1)
                 var content = $("#choose").val()
-                localStorage.setItem("content",content);
-                console.log(content)
-                var content = $("#choose").val()
-                window.location.href="addenterprise.html?content="+content;
+                window.location.href="addenterprise.html?content1="+content1;
 //              parent.$("input[name='schoolCompany']").val(chooseName);
 //              alert("ok,这里需配置服务器环境才可以正确关闭窗口并执行回调函数");
 //
