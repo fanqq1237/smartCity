@@ -23,13 +23,13 @@
 				<div class="layui-row contentBox" id="content">
 					<form class="layui-form" action="">
 						<div class="layui-form-item">
-							<label class="layui-form-label">选择学校</label>
+							<label class="layui-form-label">选择企业</label>
 							<div class="layui-input-inline">
 								<div class="layui-input-block cont" >
 									<div class="link">
-										<span class="schoolName">清华大学</span>
+										<span class="schoolName">阿里巴巴</span>
 									</div>
-									<a href="chooseSchool.html" class="layui-icon link-1">
+									<a href="chooseEnterprise.html" class="layui-icon link-1">
 										 &#xe602;
 									</a>
 								</div>
@@ -41,19 +41,21 @@
 								<input type="text" name="username" lay-verify="required" placeholder="张三" class="layui-input">
 							</div>
 						</div>
-						<div class="layui-form-item">
+						<!--<div class="layui-form-item">
 							<label class="layui-form-label">身份证号</label>
 							<div class="layui-input-block">
 								<input id="id-card" type="text" name="cardId" placeholder="410122199508048023" class="layui-input" lay-verify="required" required>
 							</div>
-						</div>
+						</div>-->
 						<div class="layui-form-item">
-							<label class="layui-form-label">学号</label>
+							<label class="layui-form-label">工号</label>
 							<div class="layui-input-block">
-								<input type="text" name="number" placeholder="201401014102" class="layui-input" lay-verify="required">
+								<input type="text" name="number" placeholder="201401014102" class="layui-input number" lay-verify="required">
+								<!--<img class="search" src="../../img/search.png">-->
+								<i class="layui-icon layui-icon-search" style="font-size: 30px; color: #1E9FFF;position: absolute;right: 10px;"></i> 
 							</div>
 						</div>
-						<p class="warn">说明：添加校园卡，以在校园应用中使用</p>
+						<p class="warn">说明：添加员工卡，以在企业应用中使用</p>
 						<button class="layui-btn addBtn" lay-submit="" lay-filter="demo1">添加</button>
 					</form>
 				</div>

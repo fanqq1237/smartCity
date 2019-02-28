@@ -23,7 +23,7 @@
 						返回
 					</a>
 					企业
-					<a href="javascript:history.back(-1);" class="add">
+					<a href="javascript:;" class="add addenterprise">
 						添加
 					</a>
 				</h2>
@@ -288,6 +288,25 @@
 				}
 			}
 		});
+		//添加企业
+		$('.addenterprise').on('click',function(){
+			var codeId = $("#cardMsg").val().replace(/\s*/g,"");
+            //window.location.href = "myTransitCard.html?codeId="+codeId;
+            localStorage.setItem("codeId",codeId);
+            layer.open({
+                type: 2,
+                closeBtn: 0,
+                title: false,
+                content: "addenterprise.html?codeId="+codeId,
+                area: ['100%', '100%'],
+                yes: function(index) {
+                    layer.close(index);
+                },
+                end: function() {
+                    form.render();
+                }
+            });
+		})
 		// 付款码
 		$("#PaymentCode").on("click", function() {
 			var codeId = $("#cardMsg").val().replace(/\s*/g, "");
