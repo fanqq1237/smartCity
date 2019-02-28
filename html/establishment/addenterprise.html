@@ -23,11 +23,11 @@
 				<div class="layui-row contentBox" id="content">
 					<form class="layui-form" action="">
 						<div class="layui-form-item">
-							<label class="layui-form-label">选择企业</label>
+							<label class="layui-form-label schoolName">选择企业</label>
 							<div class="layui-input-inline">
 								<div class="layui-input-block cont" >
 									<div class="link">
-										<span class="schoolName">阿里巴巴</span>
+										<!--<span class="schoolName"></span>-->
 									</div>
 									<a href="chooseEnterprise.html" class="layui-icon link-1">
 										 &#xe602;
@@ -80,9 +80,15 @@
 	<script>
 		var codeId = localStorage.getItem('codeId');
 		var content1 = localStorage.getItem('content1');
-        console.log(codeId)
-        console.log(content1)
-        $('.schoolName').html(content1)
+        if (content1 == null) {
+        	$('.schoolName').html('选择企业')
+        } else{
+        	$('.schoolName').html(content1)
+        }
+		
+        
+        
+        localStorage.clear(content1)
 		layui.use(['form', 'layedit', 'laydate'], function() {
 			var form = layui.form;
 			//监听提交
