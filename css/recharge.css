@@ -1,7 +1,6 @@
 .payContent {
   margin:0 -15px;
   padding:0rem 1rem;
-  background-color:#005FA6;
 }
 .ofenPayContent {
   color:#000;
@@ -12,7 +11,7 @@
   left:1rem;
   font-size:1rem;
   text-align:center;
-  color:#fff;
+  color:#333;
   background-color:rgba(153,153,153,0);
 }
 .ofenBack {
@@ -23,7 +22,7 @@
   right:1rem;
   font-size:1rem;
   text-align:center;
-  color:#fff;
+  color:#037dd8;
   background-color:rgba(153,153,153,0);
 }
 .oftenRecharge:hover {
@@ -34,7 +33,7 @@
   height:3rem;
   line-height:3rem;
   text-align:center;
-  color:#fff;
+  color:#333;
 }
 .ofenPayContent .rechargeTitle {
   color:#000;
@@ -53,7 +52,7 @@
   font-weight:400;
   line-height:20px;
   text-align:center;
-  color:#fff;
+  color:#005FA6;
   background:none;
   border:none;
 }
@@ -63,20 +62,24 @@
 }
 .formInput input {
   background:none;
-  color:#fff;
+  color:#333;
   border-radius:7px;
+  border: none;
+}
+#recharge-form .layui-form-item{
+  border-bottom:1px solid #d6d6d6;
 }
 .formInput .layui-input::-webkit-input-placeholder {
-  color:#fff;
+  color:#999;
 }
 .formInput .layui-input:-moz-placeholder {
-  color:#fff;
+  color:#999;
 }
 .formInput .layui-input::-moz-placeholder {
-  color:#fff;
+  color:#999;
 }
 .formInput .layui-input:-ms-input-placeholder {
-  color:#fff;
+  color:#999;
 }
 .cardType {
   }.cardNum,.mmm {
@@ -84,11 +87,10 @@
 }
 /*姓名卡状态*/
 .nameCard {
-  margin-top:20px;
-  border:1px solid #F5F5F5;
-  border-radius:8px;
-  box-shadow:0px 0px 6px #F5F5F5;
-  color:#757779;
+  margin-top: 20px;
+  border-radius: 8px;
+  color: #333;
+  background: rgba(241, 241, 241, .6);
 }
 .nameCard .layui-form-label {
   float:left;
@@ -105,7 +107,8 @@
 }
 .nameCard .layui-input-block input {
   border:none;
-  color:#757779;
+  color:#333;
+  background: transparent;
 }
 /* 充值金额 */
 .payTitle {
@@ -187,17 +190,19 @@
 #cardQuery .schoolQuery {
   background:none;
   border:none;
-  color:#fff;
+  color:#03A9F4;
+  color: #4e9bf7;
+  font-size:15px;
 }
 #cardQuery .layui-form-label {
   padding:9px;
   text-align:left;
-  color:#fff;
+  color:#333;
 }
 #cardQuery .layui-btn {
   width:100%;
-  background-color:#D9E5FA;
-  color:#4889EF;
+  background-color: #4e9bf7;
+  color: #fff;
 }
 .cardBoxQuery {
   background-color:#97A6F9;
@@ -337,4 +342,38 @@
     height: 3rem;
     line-height: 3rem;
     text-align: center;
+}
+
+/* 查询学工号 */
+.cardnumquery-bg{
+  background-image: url("../img/cardnumquery-bg.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+  /* min-height: 30vh; */
+  position: relative;
+}
+.cardnumquery-bg .back{
+  color:#fff;
+}
+.cardnumquery-bg .rechargeTitle{
+  color:#fff;
+}
+.cardnumquery-bg .recharge-form{
+  background: #fff;
+  margin-top: 6vh;
+  border-radius: 10px;
+  box-shadow:0px 0px 8px #cac9c9;;
+}
+.cardnumquery-bg .layui-input {
+  border: none;
+}
+.cardnumquery-bg .layui-form-label{
+  overflow: visible;
+  white-space: nowrap;
+}
+#cardQuery .layui-form-item {
+  border-bottom: 1px solid #c5c5c5;
+}
+#cardQuery .layui-form-item:nth-child(1){
+  border:none;
 }
