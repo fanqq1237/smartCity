@@ -366,6 +366,7 @@
 	height: auto;
 	text-align: center;
 	border-bottom: 1px solid #999;
+	padding: 1rem 0rem;
 }
 
 .CardBox-line {
@@ -381,4 +382,19 @@
 .check-img img {
 	width: 10px;
 	height: 10px;
+}
+.back {
+    position: absolute;
+    left: .3rem;
+    top: 0px;
+    line-height: 3rem;
+    font-size: 1rem;
+    text-align: center;
+    color: rgba(72, 156, 245, 1);
+    background-color: rgba(153, 153, 153, 0);
+}
+.file-title {
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1rem;
 }
