@@ -8,6 +8,15 @@
 		<link rel="stylesheet" href="../../css/base.css">
 		<link rel="stylesheet" href="../../css/newsDetails.css" />
 		<title>资讯详情</title>
+		<style>
+			.w-e-toolbar,.w-e-text-container{
+				border: none!important;
+			}
+			.newTitle{
+				font-size: 1.2rem;
+				font-weight: bold;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -59,32 +68,44 @@
 			layui.use(['laytpl', 'layer'], function() {
 						var laytpl = layui.laytpl;
 						var layer = layui.layer;
-						var appData = { //数据
-							"title": "应用模板引擎",
-							"appList": [{
-								"newsTitle": "最美南宁，豪华游船带您夜游邕江！抢豪华游船票开始啦！",
-								"newsTime": "2019-02-01",
-								"newsImgone": "../../img/card.png",
-								"newsImgtwo": "../../img/nd_example.jpg",
-								"newsImgthree": "../../img/nd_sur.png",
-								"newsArticle": "抛不完相思血泪抛红豆，开不完春柳春花满画楼，睡不稳纱窗风雨黄昏后，忘不了新愁与旧愁，展不开的眉头，捱不明的更漏，恰便似遮不住的青山隐隐，流不断的绿水幽幽……"
-							}]
+						// var appData = { //数据
+						// 	"title": "应用模板引擎",
+						// 	"appList": [{
+						// 		"newsTitle": "最美南宁，豪华游船带您夜游邕江！抢豪华游船票开始啦！",
+						// 		"newsTime": "2019-02-01",
+						// 		"newsImgone": "../../img/card.png",
+						// 		"newsImgtwo": "../../img/nd_example.jpg",
+						// 		"newsImgthree": "../../img/nd_sur.png",
+						// 		"newsArticle": "抛不完相思血泪抛红豆，开不完春柳春花满画楼，睡不稳纱窗风雨黄昏后，忘不了新愁与旧愁，展不开的眉头，捱不明的更漏，恰便似遮不住的青山隐隐，流不断的绿水幽幽……"
+						// 	}]
+						// }
+						/*时间戳转换*/
+						function timestampToTime(timestamp) {
+							var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+							Y = date.getFullYear() + '-';
+							M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+							D = date.getDate() + ' ';
+							return Y+M+D;
 						}
-						// $.ajax({
-						// 	url: '',
-						// 	type: 'post',
-						// 	data: {
-						// 	},
-						// 	dataType: 'json',
-						// 	success: function (data) {
-						// 		console.log(data);3
-						// 	}
-						var getAppTpl = appContent.innerHTML,
-							appView = document.getElementById('newsBox');
-						laytpl(getAppTpl).render(appData, function(html) {
-							appView.innerHTML = html;
-						});
-						});
+						$.ajax({
+							type:"post",
+							url:"http://1.192.121.127:12613/gateway/notice/getNoticeDetail?id=c48d0ae4e8e242c38b5938b86887508a",
+							async:false,
+							success: function (result) {
+								var detail=result.data;
+								var newDetail=
+								    "<h2 class='newTitle'>"+detail.title+"</h2>"+
+									"<p class='newsTime'>"+timestampToTime(detail.createTime)+"</p>"+
+									"<div class='layui-row contentArticle '>"+detail.content+"</div>"
+								$("#newsBox").append(newDetail)
+							}
+						})
+						// var getAppTpl = appContent.innerHTML,
+						// 	appView = document.getElementById('newsBox');
+						// laytpl(getAppTpl).render(appData, function(html) {
+						// 	appView.innerHTML = html;
+						 });
+					
 		</script>
 	</body>
 
