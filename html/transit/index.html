@@ -88,7 +88,7 @@
             <!-- 展示的城市云卡 -->
             <!-- 主要的功能内容盒子 -->
             <div class="layui-row transitContentBox">
-                <div class="layui-col-xs6">
+                <!--<div class="layui-col-xs6">
                     <a href="javascript:;" id="transitCode">
                         <div class="layui-row contentOne">
                             <div class="layui-col-xs5">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>-->
                 <div class="layui-col-xs6">
                     <a href="javascript:;" id="transitBalance">
                         <div class="layui-row contentOne">
@@ -248,25 +248,25 @@
         });
         
         // 乘车码
-        $("#transitCode").on("click",function(){
-            var codeId = $("#cardMsg").val().replace(/\s*/g,"");
-            //window.location.href = "myTransitCard.html?codeId="+codeId;
-            
-            localStorage.setItem("codeId",codeId);
-            layer.open({
-                type: 2,
-                closeBtn: 0,
-                title: false, 
-                content: "myTransitCard.html?codeId="+codeId,
-                area: ['100%', '100%'],
-                yes: function(index) {
-                    layer.close(index);
-                },
-                end: function() {
-                    form.render();
-                }
-            });
-        });
+//      $("#transitCode").on("click",function(){
+//          var codeId = $("#cardMsg").val().replace(/\s*/g,"");
+//          //window.location.href = "myTransitCard.html?codeId="+codeId;
+//          
+//          localStorage.setItem("codeId",codeId);
+//          layer.open({
+//              type: 2,
+//              closeBtn: 0,
+//              title: false, 
+//              content: "myTransitCard.html?codeId="+codeId,
+//              area: ['100%', '100%'],
+//              yes: function(index) {
+//                  layer.close(index);
+//              },
+//              end: function() {
+//                  form.render();
+//              }
+//          });
+//      });
         // 余额
         $("#transitBalance").on("click",function(){
             var codeId = $("#cardMsg").val().replace(/\s*/g,"");
