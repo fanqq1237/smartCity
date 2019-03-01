@@ -139,10 +139,12 @@
   margin:8px 0;
   font-size:13px;
   font-weight:600;
+  color: #aba9a9;
 }
 .tipsContent {
   margin:8px 0;
   font-size:12px;
+  color: #aba9a9;
 }
 .payMethod {
   font-size:17px;
@@ -268,22 +270,40 @@
 /*公交充值页面样式*/
 
 .card_content {
-	margin: 0 -15px;
+	/*margin: 0 -15px;
 	padding: 0rem 1rem;
 	background-color: rgb(78, 155, 245);
-	height: 10.6rem;
+	height: 10.6rem;*/
 }
 /*
 .CardBox {
 	margin-top: -7rem;
 }*/
-
+.enterpriseName{
+  margin-top: 1rem;
+	font-size: 16px;
+	font-weight: 600;
+	display: inline-block;
+}
+.cardType{
+	padding:1rem 0.5rem 0.5rem;
+}
+.cardType img{
+	width: 1rem;
+	vertical-align: middle;
+}
+.typeCard{
+	color: #aba9a9;
+	font-size: 0.6rem;
+	vertical-align: middle;
+	display: inline-block;
+}
 .cardTitle {
 	font-size: 1.25rem;
 	height: 3rem;
 	line-height: 3rem;
 	text-align: center;
-	color: white;
+	color: #000;
 }
 
 .cardBack {
@@ -291,7 +311,7 @@
 	left: 1rem;
 	font-size: 1rem;
 	text-align: center;
-	color: white;
+	color: #000;
 }
 
 .transit_card {
