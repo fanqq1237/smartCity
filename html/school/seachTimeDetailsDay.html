@@ -83,11 +83,39 @@
     <script>
         //获取日期时间段
         function fun_date(time){
-            var date1 = new Date(),
-            time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();//time1表示当前时间
+            var date1 = new Date();
+//          time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();
+			if (date1.getMonth()+1 < 10  && date1.getDate() < 10) {
+				var month = "0"+(date1.getMonth()+1);
+            	var day = "0"+date1.getDate();
+            	var time1 = date1.getFullYear()+"-"+month+"-"+day;
+			} else if(date1.getMonth()+1 < 10  && date1.getDate() >= 10){
+				var month = "0"+(date2.getMonth()+1);
+            	var time1 = date2.getFullYear()+"-"+months+"-"+date2.getDate();
+			}else if (date1.getMonth()+1 >= 10  && date1.getDate() < 10) {
+				var day = "0"+date1.getDate();
+            	var time1 = date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+day;
+			}else{
+				time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();
+			}
+			
+			
             var date2 = new Date(date1);
             date2.setDate(date1.getDate()+time);
-            var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+//          var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+            if (date2.getMonth()+1 < 10 && date2.getDate() < 10) {
+            	var months = "0"+(date2.getMonth()+1);
+            	var days = "0"+date2.getDate();
+            	var time2 = date2.getFullYear()+"-"+months+"-"+days;
+            } else if (date2.getMonth()+1 < 10 && date2.getDate() >= 10) {
+            	var months = "0"+(date2.getMonth()+1);
+            	var time2 = date2.getFullYear()+"-"+months+"-"+date2.getDate();
+            }else if (date2.getMonth()+1 >= 10 && date2.getDate() < 10) {
+            	var days = "0"+date2.getDate();
+            	var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+days;
+            }else{
+            	var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+            }
             if (!time) {
                 return time1;
             } else {
@@ -131,8 +159,27 @@
                 endYear: endYear,
                 timeBoo: false,
                 afterAction: function (d1, d2, d3) {
-                    var sDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/")),
-                        eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+//                  var sDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/")),
+//                      eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+						
+                        if (d1 == undefined) {
+                        	d1 = 1919
+                        } else{
+                        	d1 = d1
+                        }
+                        if (d2 == undefined) {
+                        	d2 = "0"+1
+                        } else{
+                        	d2 = d2
+                        }
+                        if (d3 == undefined) {
+                        	d3 = "0"+1
+                        } else{
+                        	d3 = d3
+                        }
+                        var sDate = new Date(d1 + '-' + d2 + '-' + d3);
+						var eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+                        
                         if(sDate > eDate){
                             layer.msg("开始日期不得大于于结束日期！");
                          return false;
@@ -148,8 +195,25 @@
                 endYear: endYear,
                 timeBoo: false,
                 afterAction: function (d1, d2, d3) {
-                    var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/")),
-                        eDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/"));
+//                  var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/")),
+//                      eDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/"));
+                        if (d1 == undefined) {
+                        	d1 = 1919
+                        } else{
+                        	d1 = d1
+                        }
+                        if (d2 == undefined) {
+                        	d2 = "0"+1
+                        } else{
+                        	d2 = d2
+                        }
+                        if (d3 == undefined) {
+                        	d3 = "0"+1
+                        } else{
+                        	d3 = d3
+                        }
+                        var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/"));
+						var eDate = new Date(d1 + '-' + d2 + '-' + d3);
                         if(sDate > eDate){
                             layer.msg("结束日期不得小于开始日期！");
                          return false;
@@ -163,16 +227,28 @@
             $("button.week").on("click",function(){
                 //$('.seachTime').val(fun_date(-7)+' 至 '+fun_date());
                 layer.alert(fun_date(-7)+' 至 '+fun_date());
+                var starTime = fun_date(-7);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
             //近一个月按钮
             $("button.oneMonth").on("click",function(){
                 //$('.seachTime').val(fun_date(-30)+' 至 '+fun_date());
                 layer.alert(fun_date(-30)+' 至 '+fun_date());
+                var starTime = fun_date(-30);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
             //近三个月按钮
             $("button.threeMonth").on("click",function(){
                 //$('.seachTime').val(fun_date(-90)+' 至 '+fun_date());
                 layer.alert(fun_date(-90)+' 至 '+fun_date());
+                var starTime = fun_date(-90);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
 
             $(".timeTrue").on("click",function(){
