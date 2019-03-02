@@ -65,28 +65,29 @@
 /* 最新动态 */
 .lastestNews {
 	padding: 0 1rem;
-    margin-bottom: 4rem;
+/*    margin-bottom:4rem;*/
     background-color: #fff;
+    /*padding-bottom:4rem;*/
 }
 
 .smartCityNotice {
-    border-bottom: 1px solid #eee;
+    /*border-bottom: 1px solid #eee;*/
 }
 
 .lastestNewsTitle {
-	padding: 1rem 0 0.4rem;
+	padding: 0.8rem 0 0.4rem;
 	font: 600 18px/20px '黑体'
 }
 
 .noticeTitleBox {
-    margin: 0rem 0 0.2rem;
+    /*margin: 0rem 0 0.2rem;*/
     overflow: hidden;
 }
 
 .noticeTitleBox .imgNotice {
 	display: inline-block;
 	width: 1.5rem;
-	padding: 0rem .2rem .2rem;
+	padding: 0rem .2rem .2rem 0;
 }
 
 .noticeTitleBox .noticeTitle {
@@ -105,13 +106,16 @@
 
 }
 .noticeimg img {
-	height: 5rem;
+	height: 4.4rem;
 
 }
 .noticeTxt h2 {
-	font: 500 14px/25px 'Arial Verdana';
+	font: 500 13.5px/25px 'Arial Verdana';
 	color: #000;
-	line-height:1.2rem;
+	line-height:1.15rem;
+	margin-top: 0.5rem;
+	margin-left: 3px;
+
 }
 
 .noticeTxt small {
@@ -129,7 +133,8 @@
 }
 
 .time {
-	margin: 1rem 0;
+	margin: 0.9rem 0 0.5rem;
+	margin-left: 4px;
 }
 
 .rechargeMsg {
@@ -143,18 +148,18 @@
 	bottom: 0;
 	max-width: 768px;
     width: 100%;
-	padding: .3rem 0;
-	background-color: rgba(249, 249, 249, 1)
+	padding: .3rem 0 .2rem;
+	background-color: #fff;
 }
 
 .footer .img-txt h3 {
 	color: #999;
-	font-size: 12px;
+	font-size: 13px;
 	text-align: center;
 }
 
 .footer .img-txt img {
-	width: 2rem;
+	width: 1.4rem;
 }
 
 /*
@@ -179,5 +184,23 @@
 }
 .layui-fluid{
 	padding:0;
-	background:#f7f7f7;  
+	background:#f7f7f7;
+	padding-bottom: 3rem;   
+}
+.bg{
+	background-color:#fff;
+	padding-bottom: 0;
+}
+.titleContent {
+    margin-top: .5rem;
+    padding: 0 -15px;
+    height: 2.5rem;
+}
+.back {
+    position: absolute;
+    left: .3rem;
+    top: 0px;
+    line-height: 2rem;
+    font-size: 1rem;
+    color: rgba(72, 156, 245, 1);
 }

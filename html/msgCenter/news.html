@@ -28,7 +28,8 @@
 		<!-- lastest news -->
 		<div class="layui-row lastestNews">
 			<!-- <h2 class="lastestNewsTitle">最新动态</h2> -->
-			<div class="smartCityNotice" id="smartCityNoticeView"></div>
+			<ul class="mui-table-view mui-table-view-chevron smartCityNotice" id="list">
+			</ul>
 		</div>
 		<!-- end-lastest news -->
 	</div>
@@ -63,38 +64,6 @@
 	<script src="../../js/jquery-3.3.1.min.js"></script>
 	<script src="../../layui/layui.js"></script>
   
-	<!-- 智慧城市消息通知模板引擎 -->
-	<script id="lastestNewsTemplate"  type="text/html">
-		{{#  layui.each(d.lastestNewsList, function(index, item){ }}
-			{{# if( item.dataType === 0 ){ }}
-				<div class="noticeTitleBox">
-					<div class="layui-col-xs1">
-						<img class="imgNotice" src="{{ item.imgNotice }}" alt="">
-					</div>
-					<div class="layui-col-xs10 noticeTitle">
-						<p>{{ item.noticeApp }}</p>
-						<small>有新通知</small>
-					</div>
-				</div>
-				<div class="layui-row">
-					<div class="layui-col-xs8 noticeTxt">
-						<a href="javascript:;">
-							<h2 class="newsTitle">{{ item.noticeTitle }}</h2>
-						</a>
-						<div class="time">
-						
-							<small>{{ item.noticeTime }}分钟前</small>
-						</div>
-					</div>
-					<div class="layui-col-xs3 noticeimg">
-						<img class="" src="{{ item.noticeCover }}" alt="" width="100%">
-					</div>
-				</div>
-			{{# } }}
-			
-		{{#  }); }}
-	</script>
-	<!-- end-智慧城市消息通知模板引擎 -->
 	<script>
 		//刷新页面时的一些初始化设置
 		$(function(){
@@ -102,42 +71,33 @@
 		})
 		layui.use('laytpl', function(){
 		  var laytpl = layui.laytpl;
-		  
-		  
-			// $.ajax({
-			// 	url: '/getAppData',
-			// 	type: 'post',
-			// 	data: {
-			// 	},
-			// 	dataType: 'json',
-			// 	success: function (data) {
-			// 		console.log(data);
 
-			// 	}
-			// });
+		  var  params=1;
+		  
+		  
+			$.ajax({
+				url: 'http://1.192.121.127:12613/gateway/notice/getNoticeList',
+				type: 'post',
+				data: {
+                   pageNum:params},
+				dataType: 'json',
+				success: function (data) {
+					console.log(data);
+					var returnData = data.data;
+					var appStr = '';
+                          for (var i = 0; i <returnData.length; i++) {        	
+							  appStr += "<li><div class='noticeTitleBox'><div class='layui-col-xs1'><img class='imgNotice' src='' alt=''></div><div class='layui-col-xs10 noticeTitle'><p>"+returnData[i].title+"</p><small>"+returnData[i].createBy+"</small></div></div><div class='layui-row'><div class='layui-col-xs8 noticeTxt'><a href='javascript:;'><h2 class='newsTitle'>"+returnData[i].id+"</h2></a><div class='time'><small>"+returnData[i].ver+"</small></div></div><div class='layui-col-xs3 noticeimg'><img class='' src='' alt=''  width='100%'></div></div></li>"  
+
+                            }
+                            // new Array(16).join('data') + cardNum.slice(15);
+                          $("#list").append(appStr);
+
+
+				}
+			});
 			
 
-			// 最新动态模板引擎
-			var lastestNewsData = {
-				"lastestNewsList" : [
-					{
-						"dataType" : 0,
-						"imgNotice" : "../../img/logo.jpg",
-						"noticeApp" : "广西农信智慧城市",
-						"noticeTitle" : "新用户首次绑定农信卡奖励红包已发送至您的账户的账户绑定农信卡",
-						"noticeTime" : "3",
-						"noticeCover" : "../../img/sy_jiang.png"
-					},
-					{
-						"dataType" : 1,
-						"imgNotice" : "../../img/sy_gjc.png",
-						"noticeApp" : "公交充值中心",
-						"noticeTitle" : "赵**女士，您好，您卡号为23423548275819277584的公交卡于2019-01-01充值100元成功成功成功。",
-						"noticeTime" : "5",
-						"noticeCover" : "../../img/sy_jiang.png "
-					},
-				],
-			}
+			
 			// $.ajax({
 			// 	url: '/getAppData',
 			// 	type: 'post',
@@ -145,11 +105,7 @@
 			// 	},
 			// 	dataType: 'json',
 			// 	success: function (data) {
-					var getlastNewsTpl = lastestNewsTemplate.innerHTML,
-							smartCityNoticeView = document.getElementById('smartCityNoticeView');
-					laytpl(getlastNewsTpl).render(lastestNewsData, function(html){
-					  smartCityNoticeView.innerHTML = html;
-					});
+				
 			// 	}
 			// });
 		}); 
