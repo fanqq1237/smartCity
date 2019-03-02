@@ -163,16 +163,28 @@
             $("button.week").on("click",function(){
                 //$('.seachTime').val(fun_date(-7)+' 至 '+fun_date());
                 layer.alert(fun_date(-7)+' 至 '+fun_date());
+                var starTime = fun_date(-7);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
             //近一个月按钮
             $("button.oneMonth").on("click",function(){
                 //$('.seachTime').val(fun_date(-30)+' 至 '+fun_date());
                 layer.alert(fun_date(-30)+' 至 '+fun_date());
+                var starTime = fun_date(-30);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
             //近三个月按钮
             $("button.threeMonth").on("click",function(){
                 //$('.seachTime').val(fun_date(-90)+' 至 '+fun_date());
                 layer.alert(fun_date(-90)+' 至 '+fun_date());
+                var starTime = fun_date(-90);
+                var endTime = fun_date()
+                $('.seachTime').val(starTime);
+                $('.seachTimeEnd').val(endTime)
             });
 
             $(".timeTrue").on("click",function(){
