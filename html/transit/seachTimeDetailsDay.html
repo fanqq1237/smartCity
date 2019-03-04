@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            城市云卡-按日查询
+            校园卡-按日查询
         </title>
         <link rel="stylesheet" href="../../layui/css/layui.css">
         <link rel="stylesheet" href="../../css/base.css">
@@ -83,11 +83,39 @@
     <script>
         //获取日期时间段
         function fun_date(time){
-            var date1 = new Date(),
-            time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();//time1表示当前时间
+            var date1 = new Date();
+//          time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();
+			if (date1.getMonth()+1 < 10  && date1.getDate() < 10) {
+				var month = "0"+(date1.getMonth()+1);
+            	var day = "0"+date1.getDate();
+            	var time1 = date1.getFullYear()+"-"+month+"-"+day;
+			} else if(date1.getMonth()+1 < 10  && date1.getDate() >= 10){
+				var month = "0"+(date2.getMonth()+1);
+            	var time1 = date2.getFullYear()+"-"+months+"-"+date2.getDate();
+			}else if (date1.getMonth()+1 >= 10  && date1.getDate() < 10) {
+				var day = "0"+date1.getDate();
+            	var time1 = date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+day;
+			}else{
+				time1=date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate();
+			}
+			
+			
             var date2 = new Date(date1);
             date2.setDate(date1.getDate()+time);
-            var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+//          var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+            if (date2.getMonth()+1 < 10 && date2.getDate() < 10) {
+            	var months = "0"+(date2.getMonth()+1);
+            	var days = "0"+date2.getDate();
+            	var time2 = date2.getFullYear()+"-"+months+"-"+days;
+            } else if (date2.getMonth()+1 < 10 && date2.getDate() >= 10) {
+            	var months = "0"+(date2.getMonth()+1);
+            	var time2 = date2.getFullYear()+"-"+months+"-"+date2.getDate();
+            }else if (date2.getMonth()+1 >= 10 && date2.getDate() < 10) {
+            	var days = "0"+date2.getDate();
+            	var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+days;
+            }else{
+            	var time2 = date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate();
+            }
             if (!time) {
                 return time1;
             } else {
@@ -131,14 +159,35 @@
                 endYear: endYear,
                 timeBoo: false,
                 afterAction: function (d1, d2, d3) {
-                    var sDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/")),
-                        eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+                	
+//                  var sDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/")),
+//                      eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+						
+                        if (d1 == undefined) {
+                        	d1 = 1919
+                        } else{
+                        	d1 = d1
+                        }
+                        if (d2 == undefined) {
+                        	d2 = "0"+1
+                        } else{
+                        	d2 = d2
+                        }
+                        if (d3 == undefined) {
+                        	d3 = "0"+1
+                        } else{
+                        	d3 = d3
+                        }
+                        var sDate = new Date(d1 + '-' + d2 + '-' + d3);
+						var eDate = new Date($('.seachTimeEnd').val().replace(/\-/g, "\/"));
+                        
                         if(sDate > eDate){
                             layer.msg("开始日期不得大于于结束日期！");
                          return false;
                         }else{
                             $('.seachTime').val(d1 + '-' + d2 + '-' + d3);
                         }
+                        console.log($('.seachTime').val())
                 }
             });
             //结束日期
@@ -148,8 +197,25 @@
                 endYear: endYear,
                 timeBoo: false,
                 afterAction: function (d1, d2, d3) {
-                    var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/")),
-                        eDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/"));
+//                  var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/")),
+//                      eDate = new Date((d1 + '-' + d2 + '-' + d3).replace(/\-/g, "\/"));
+                        if (d1 == undefined) {
+                        	d1 = 1919
+                        } else{
+                        	d1 = d1
+                        }
+                        if (d2 == undefined) {
+                        	d2 = "0"+1
+                        } else{
+                        	d2 = d2
+                        }
+                        if (d3 == undefined) {
+                        	d3 = "0"+1
+                        } else{
+                        	d3 = d3
+                        }
+                        var sDate = new Date($('.seachTime').val().replace(/\-/g, "\/"));
+						var eDate = new Date(d1 + '-' + d2 + '-' + d3);
                         if(sDate > eDate){
                             layer.msg("结束日期不得小于开始日期！");
                          return false;
@@ -161,18 +227,48 @@
             });
             //近七天按钮
             $("button.week").on("click",function(){
-                //$('.seachTime').val(fun_date(-7)+' 至 '+fun_date());
-                layer.alert(fun_date(-7)+' 至 '+fun_date());
+				var tip = fun_date(-7)+' 至 '+fun_date()
+                layer.confirm(tip, {
+				  	btn: ['确定','取消'] 
+				}, function(){
+				  	var data = {code:0,success:'true',msg:'请求成功',value:[{type:0,detailsType:'银联充值哈哈这是新的,傻了吧',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+1000',detailsStatus:'待领取啊啊'},{type:1,detailsType:'银联充值666',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'已领款'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:''},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'}]};
+                    parent.$("#hiddenData").val('你好啊');  
+                    parent.$("#hiddenData2").val(JSON.stringify(data)); 
+
+                    var index = parent.layer.getFrameIndex(window.name); 
+                    parent.layer.close(index); 
+				}, function(){
+				});
             });
             //近一个月按钮
             $("button.oneMonth").on("click",function(){
-                //$('.seachTime').val(fun_date(-30)+' 至 '+fun_date());
-                layer.alert(fun_date(-30)+' 至 '+fun_date());
+				var tip = fun_date(-30)+' 至 '+fun_date()
+                layer.confirm(tip, {
+				  	btn: ['确定','取消'] 
+				}, function(){
+				  	var data = {code:0,success:'true',msg:'请求成功',value:[{type:0,detailsType:'银联充值哈哈这是新的,傻了吧',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+1000',detailsStatus:'待领取啊啊'},{type:1,detailsType:'银联充值666',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'已领款'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:''},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'}]};
+                    parent.$("#hiddenData").val('你好啊');  
+                    parent.$("#hiddenData2").val(JSON.stringify(data)); 
+
+                    var index = parent.layer.getFrameIndex(window.name); 
+                    parent.layer.close(index); 
+				}, function(){
+				});
             });
             //近三个月按钮
             $("button.threeMonth").on("click",function(){
-                //$('.seachTime').val(fun_date(-90)+' 至 '+fun_date());
-                layer.alert(fun_date(-90)+' 至 '+fun_date());
+				var tip = fun_date(-90)+' 至 '+fun_date()
+                layer.confirm(tip, {
+				  	btn: ['确定','取消'] 
+				}, function(){
+				  	var data = {code:0,success:'true',msg:'请求成功',value:[{type:0,detailsType:'银联充值哈哈这是新的,傻了吧',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+1000',detailsStatus:'待领取啊啊'},{type:1,detailsType:'银联充值666',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'已领款'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:''},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:0,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'},{type:1,detailsType:'银联充值',detailsTime:'2019-01-10 13:11:23',detailsNum:'20134565921321156521',detailsMoney:'+100',detailsStatus:'待领取'}]};
+                    parent.$("#hiddenData").val('你好啊');  
+                    parent.$("#hiddenData2").val(JSON.stringify(data)); 
+
+                    var index = parent.layer.getFrameIndex(window.name); 
+                    parent.layer.close(index); 
+				}, function(){
+				});
             });
 
             $(".timeTrue").on("click",function(){
