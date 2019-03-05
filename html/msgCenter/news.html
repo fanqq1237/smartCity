@@ -10,6 +10,13 @@
 	<link rel="stylesheet" href="../../css/mescroll.min.css">
 	<link rel="stylesheet" href="../../css/mescroll-option.css">
 	<link rel="stylesheet" href="../../css/msgIndex.css">
+	<style type="text/css">
+
+			/*展示上拉加载的数据列表*/
+			.news-list li{
+				padding:1rem;
+			}
+		</style>
 </head>
 <body>
 
@@ -99,7 +106,7 @@
 			
 			/*下拉刷新的回调 */
 			function downCallback(page){
-				// var page=page.num;
+				var page=1;
 				// alert("page")
 				// console.log(page);
 				//加载轮播数据..
@@ -109,7 +116,7 @@
 				$.ajax({
 					url: 'http://1.192.121.127:12613/gateway/notice/getNoticeList',
 					type: 'post',
-					data: {},
+					data: {pageNum:page},
 					dataType: 'json',
 					success: function (data) {
 						console.log(data);
