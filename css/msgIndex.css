@@ -30,22 +30,19 @@
 }
 
             
-            /*列表*/
-            .mescroll{
-                position: fixed;
-                top: 80px;
-                bottom: 40px;
-                height: auto;
-            }
-            /*回到顶部按钮*/
-            .mescroll-totop {
-                bottom: 50px;
-            }
-            /*展示上拉加载的数据列表*/
-            .news-list li{
-                padding: 0 1rem;
-/*                border-bottom: 1px solid #eee;*/
-            }
+/*列表*/
+.mescroll{
+    position: fixed;
+    top: 80px;
+    bottom: 40px;
+    height: auto;
+}
+/*回到顶部按钮*/
+.mescroll-totop {
+    bottom: 50px;
+}
+/*展示上拉加载的数据列表*/
+
 .newstop{
     word-break: break-all;
     text-overflow: ellipsis;
@@ -57,7 +54,7 @@
 .mescroll-totop {
     z-index: 9990;
     position: fixed;
-    right: 10px;
+    right: 15px;
     bottom: 80px;
     width: 36px;
     height: 36px;
@@ -69,4 +66,6 @@
     padding-right:35px;
 
 }
-
+.news-list li{
+	padding: 0 1rem;			
+}
