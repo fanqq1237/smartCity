@@ -87,11 +87,19 @@
 							D = date.getDate() + ' ';
 							return Y+M+D;
 						}
+						//获取url中的参数
+						function getUrlParam(name) {
+							var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+							var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+							if (r != null) return unescape(r[2]); return null; //返回参数值
+						}
+						var id = getUrlParam('id'); //公益募捐详情ID
 						$.ajax({
 							type:"post",
-							url:"http://1.192.121.127:12613/gateway/notice/getNoticeDetail?id=c48d0ae4e8e242c38b5938b86887508a",
+							url:"http://1.192.121.127:12613/gateway/notice/getNoticeDetail?id="+id,
 							async:false,
 							success: function (result) {
+								console.log(result)
 								var detail=result.data;
 								var newDetail=
 								    "<h2 class='newTitle'>"+detail.title+"</h2>"+
