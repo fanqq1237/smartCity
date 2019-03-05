@@ -20,7 +20,7 @@
                         <i class="layui-icon layui-icon-left"></i> 返回
                     </a>
                  家长管控
-                  <a href="###" class="range">适用范围</a>
+                  <a href="###" class="range" id="userRange">适用范围</a>
                 </h2>
 			</div>
 			<h3 class="msg">开通后，接收孩子校园、公交等信息</h3>
@@ -96,6 +96,23 @@
 					appView.innerHTML = html;
 				});
 			});
+			
+			//使用范围
+			$("#userRange").on("click",function(){
+	            layer.open({
+	                type: 2,
+	                closeBtn: 0,
+	                title: false,
+	                content: "userRange.html",
+	                area: ['100%', '100%'],
+	                yes: function(index) {
+	                    layer.close(index);
+	                },
+	                end: function() {
+	                    form.render();
+	                }
+	            });
+        	});
 		</script>
 	</body>
 
