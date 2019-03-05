@@ -28,3 +28,45 @@
 	height: 100px;
 	background: #fff;
 }
+
+            
+            /*列表*/
+            .mescroll{
+                position: fixed;
+                top: 80px;
+                bottom: 40px;
+                height: auto;
+            }
+            /*回到顶部按钮*/
+            .mescroll-totop {
+                bottom: 50px;
+            }
+            /*展示上拉加载的数据列表*/
+            .news-list li{
+                padding: 0 1rem;
+/*                border-bottom: 1px solid #eee;*/
+            }
+.newstop{
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.mescroll-totop {
+    z-index: 9990;
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    opacity: 0;
+}
+.mescroll-upwarp {
+    min-height: 20px;
+    padding-right:35px;
+
+}
+
