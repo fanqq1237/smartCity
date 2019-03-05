@@ -36,6 +36,7 @@
     top: 80px;
     bottom: 40px;
     height: auto;
+    background: #f7f7f7;
 }
 /*回到顶部按钮*/
 .mescroll-totop {
@@ -67,5 +68,7 @@
 
 }
 .news-list li{
-	padding: 0 1rem;			
+	padding: 0 1rem;
+	margin-bottom: 0.5rem;
+	background: #fff;			
 }
