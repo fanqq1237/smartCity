@@ -15,7 +15,7 @@
 }
 .query_btn{
 	float: right;
-	background-color:rgba(0, 95, 166) ;
+	background-color:#005ea7!important;
 }
 .layui-form-item .layui-form-label{
 	overflow: visible;
@@ -49,7 +49,7 @@
 .exchange-btn{
 	width: 80%;
 	text-align: center;
-	background-color:rgba(0, 95, 166) ;
+	background-color:#005ea7!important;
 }
 .layui-input-block{
 	text-align: center;
@@ -119,20 +119,68 @@
 	height: 55px;
 	height: 55px;
 }
+.successTit{
+	color: #FF0000;
+}
 .activeMsg{
-	margin-top:1rem;
+	margin:1rem 0;
 }
 .successMsg{
 	margin-top: 2rem;
 }
+.allNum{
+	margin-bottom: 25px;
+}
 .successMsg span{
 	color: rgba(0, 95, 166);
 }
-.close_btn{
+.close_btn,.close_btn_1{
 	margin-top: 2rem;
 	width: 50%;
-	background-color:rgba(0, 95, 166) ;
+	background-color:#005ea7!important;
+	margin-left: 0!important;
 }
 .errorMsg{
 	color: red;
+}
+.right_input_1 {
+    text-align: center;
+    float: right;
+    font-size: 14px;
+    width: 8%;
+    padding: 0!important;
+    height: 26px;
+}
+.right_input_2 {
+    text-align: right;
+    float: right;
+    font-size: 12px;
+    padding: 0!important;
+    height: 26px;
+	width: 49%;
+}
+.changeNum{
+	background: #005ea7;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	width: 8%;
+	float: right;
+    height: 26px;
+    line-height: 26px;
+    border: none;
+}
+.btn{
+	display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #005ea7;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
 }
